@@ -278,7 +278,7 @@ def _dropout_filter(mudata, GP_names, mods):
     GP_G = [gp.split('~')[0] for gp in GP_names]
     GP_genes_index = index_df.loc[GP_G,:]['index'].to_numpy()
 
-    E_mtx = mudata.mod[mods[0]].X
+    E_mtx = _check_array(mudata.mod[mods[0]].X)
     E_mtx_dropout_value = np.zeros(E_mtx.shape)
     Dropout_mtx = (~np.isclose(E_mtx_dropout_value,E_mtx, 1e-3)).astype(int)
     Dropout_mtx_G = Dropout_mtx[:,GP_genes_index]
@@ -289,7 +289,7 @@ def _dropout_filter(mudata, GP_names, mods):
     GP_P = [gp.split('~')[1] for gp in GP_names]
     GP_peaks_index = index_df.loc[GP_P,:]['index'].to_numpy()
 
-    E_mtx = mudata.mod[mods[1]].X
+    E_mtx = _check_array(mudata.mod[mods[1]].X)
     E_mtx_dropout_value = np.zeros(E_mtx.shape)
     Dropout_mtx = (~np.isclose(E_mtx_dropout_value,E_mtx, 1e-3)).astype(int)
     Dropout_mtx_P = Dropout_mtx[:,GP_peaks_index]

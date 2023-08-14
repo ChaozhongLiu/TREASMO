@@ -10,6 +10,7 @@ from minisom import MiniSom
 from scipy import stats
 import matplotlib.pyplot as plt
 from statsmodels.stats.multitest import fdrcorrection
+from sklearn.gaussian_process import GaussianProcessRegressor
 
 import random
 import scanpy as sc
@@ -377,8 +378,26 @@ def FindPathMarkers(mudata, ident, path, mods=['rna','atac'], corrct_method='bon
 
 
 
+def _fit_data(timebinDf, xfit):
+    xdata = timebinDf['time'].to_numpy()
+    ydata = timebinDf['value'].to_numpy()
+
+    filter_na = ~np.isnan(ydata)
+    xdata = xdata[filter_na]
+    ydata = ydata[filter_na]
+
+    # Compute the Gaussian process fit
+    gp = GaussianProcessRegressor(random_state=1)
+    gp.fit(xdata[:, np.newaxis], ydata)
+    #xfit = np.linspace(data['time'].min(), data['time'].max(), bins)
+    yfit, _ = gp.predict(xfit[:, np.newaxis], return_std=True)
+
+    return yfit
+
+
+
 def TimeBinData(mudata, ident, path, pseudotime, features,
-                bins=100, rm_outlier=False):
+                bins=100, rm_outlier=False, fitted=None):
 
     cells_bool = mudata.obs[ident].isin(path).to_numpy()
     #features = mudata.uns['Local_L_names']
@@ -405,8 +424,22 @@ def TimeBinData(mudata, ident, path, pseudotime, features,
     if rm_outlier:
         data = data[np.abs(stats.zscore(data)) <= 2]
 
+    data = data.sort_values(by='time')
 
-    return data
+    if fitted is not None:
+        fitDf = pd.DataFrame(np.zeros((fitted, data.shape[1])), columns=data.columns)
+        timefit = np.linspace(data['time'].min(), data['time'].max(), fitted)
+        fitDf['time'] = timefit
+
+        for feature in features:
+            tmpDf = data[['time', feature]].copy()
+            tmpDf.columns = ['time', 'value']
+            fitDf[feature] = _fit_data(tmpDf, timefit)
+
+        return data, fitDf
+
+    else:
+        return data
 
 
 
@@ -552,7 +585,7 @@ def PathDynamics(mudata, gene, peaks, ident, path, pseudotime, bins=100):
 
 
 
-def DynamicModule(mudata, ident, path, pseudotime, features=None, bins=100,
+def DynamicModule(mudata, ident, path, pseudotime, features=None, bins=100, fitted=100,
                   num_iteration=5000, som_shape=(2,2), sigma=0.5, learning_rate=.1, random_seed=1):
     
     """
@@ -593,11 +626,11 @@ def DynamicModule(mudata, ident, path, pseudotime, features=None, bins=100,
     if features is None:
         features = mudata.uns['Local_L_names']
 
-    data = TimeBinData(mudata, ident, path, pseudotime, features,
-                       bins=bins, rm_outlier=False)
+    data, fitDf = TimeBinData(mudata, ident, path, pseudotime, features,
+                              bins=bins, rm_outlier=False, fitted=fitted)
 
 
-    som_mtx = data.to_numpy()[:,:-1].T
+    som_mtx = fitDf.to_numpy()[:,:-1].T
     som_mtx = stats.zscore(som_mtx, axis=1)
     som_mtx[som_mtx > 3] = 3
     som_mtx[som_mtx < -3] = -3

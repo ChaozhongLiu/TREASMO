@@ -3,6 +3,7 @@ import pandas as pd
 import anndata as ad
 import time
 import math
+import scipy as sp
 
 import seaborn as sns
 import scanpy as sc
@@ -143,6 +144,13 @@ def _Heatmap_nocluster(anndat_L, groupby, save=None, **kwds):
             plt.savefig(save)
 
 
+def _check_array(mtx):
+    if sp.sparse.issparse(mtx): #isinstance(mtx, sp.spmatrix):
+        return mtx.toarray()
+    elif isinstance(mtx, np.ndarray):
+        return mtx
+    else:
+        raise Exception("Omics Data should be either numpy array or scipy sparse matrix.")
 
 
 
@@ -201,8 +209,8 @@ def visualize_marker(mudata, gene, peak, mods=['rna','atac'],
 
     feature = f'{gene}~{peak}'
     mudata.obs[feature] = anndat_sp_L[feature].to_numpy()
-    mudata.obs[gene] = mudata.mod[mods[0]][:,gene].X.squeeze().toarray()
-    mudata.obs[peak] = mudata.mod[mods[1]][:,peak].X.squeeze().toarray()
+    mudata.obs[gene] = _check_array(mudata.mod[mods[0]].X[:,mudata.mod[mods[0]].var_names == gene]).squeeze() #.toarray()
+    mudata.obs[peak] = _check_array(mudata.mod[mods[1]].X[:,mudata.mod[mods[1]].var_names == peak]).squeeze() #.toarray()
 
     if vmins is None:
         vmins = [mudata.obs[gene].min(), mudata.obs[peak].min(), mudata.obs[feature].min()]
