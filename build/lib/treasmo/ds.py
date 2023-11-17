@@ -532,7 +532,7 @@ def PathDynamics(mudata, gene, peaks, ident, path, pseudotime, bins=100):
     Returns
     ---------
 
-        DataFrame saved in mudata.uns['path_dynamics'] describing correlation and cluster proportion changes along the trajectory
+        DataFrame saved in mudata.uns['pathDym'] describing correlation and cluster proportion changes along the trajectory
 
 
     """

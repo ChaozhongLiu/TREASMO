@@ -135,7 +135,7 @@ def nearby_peaks(g_array, min_op=1):
     
 
 def peaks_within_distance(genes, peaks, upstream, downstream, ref_gtf_fn,
-                          no_intersect=True, id_type='Symbol', split_symbol=['-','-']):
+                          no_intersect=True, id_col='GeneSymbol', split_symbol=['-','-']):
     """
     Function to annotate genes with nearby peaks
 
@@ -156,7 +156,7 @@ def peaks_within_distance(genes, peaks, upstream, downstream, ref_gtf_fn,
 
         no_intersect: if peak within the range lies in another gene body, remove the peak or not
 
-        id_type: ID type of the gene list, ref_gtf_fn should contain this ID
+        id_col: ID column name, ref_gtf_fn should contain this ID
 
         split_symbol: how peak location ID is merged
                       'chr1-12345-23456' - split_symbol=['-','-']
@@ -171,11 +171,12 @@ def peaks_within_distance(genes, peaks, upstream, downstream, ref_gtf_fn,
     gloc_df = get_gloc_from_atac_data(peaks, split_symbol=split_symbol)
     
     ref_gtf = pd.read_csv(ref_gtf_fn, sep='\t')
-    if id_type=='Symbol':
-        ref_gtf = ref_gtf.loc[ref_gtf['GeneSymbol'].isin(genes)]
-    elif id_type=='Ensembl':
-        ref_gtf = ref_gtf.loc[ref_gtf['gene_id'].isin(genes)]
-        ref_gtf['GeneSymbol'] = ref_gtf['gene_id'].copy()
+    #if id_col=='GeneSymbol':
+    #    ref_gtf = ref_gtf.loc[ref_gtf['GeneSymbol'].isin(genes)]
+    #elif id_col=='gene_id':
+    ref_gtf = ref_gtf.loc[ref_gtf[id_col].isin(genes)]
+    ref_gtf['GeneSymbol'] = ref_gtf[id_col].copy()
+
     #upstream, downstream = 100000, 100000
     ref_gtf['start_exp'] = 0
     ref_gtf['end_exp'] = 0
