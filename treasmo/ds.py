@@ -3,7 +3,6 @@ import pandas as pd
 import anndata as ad
 import time
 
-import treasmo.core as core
 from minisom import MiniSom
 
 
