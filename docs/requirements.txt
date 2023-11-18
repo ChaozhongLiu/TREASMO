@@ -5,8 +5,6 @@ leidenalg
 libpysal
 hdf5plugin
 muon
-fa2
-louvain
 minisom
 sphinx_rtd_theme
 nbsphinx
