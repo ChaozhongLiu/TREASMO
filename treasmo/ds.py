@@ -443,7 +443,7 @@ def TimeBinData(mudata, ident, path, pseudotime, features,
 
     Arguments
     --------------
-    mudata: MuData
+        mudata: MuData
             single-cell multi-omics data saved as MuData object
             It must have correlation strength index calculated.
         
