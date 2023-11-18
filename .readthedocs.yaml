@@ -6,7 +6,7 @@ build:
     python: "miniconda3-4.7"
 
 conda:
-  environment: path/to/environment.yml
+  environment: environment.yml
 
 
 sphinx:
