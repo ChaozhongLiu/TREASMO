@@ -1,0 +1,22 @@
+name: myenv
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10.13
+  - numpy=1.22
+  - scanpy
+  - python-igraph
+  - leidenalg
+  - libpysal
+  - hdf5plugin
+  - muon
+  - fa2
+  - louvain
+  - pip:
+    - minisom
+    - sphinx_rtd_theme
+    - nbsphinx
+    - nbsphinx_link
+    - numpydoc
+    - sphinx_book_theme

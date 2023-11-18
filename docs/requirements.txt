@@ -1,11 +1,3 @@
-numpy==1.22
-scanpy
-python-igraph
-leidenalg
-libpysal
-hdf5plugin
-muon
-minisom
 sphinx_rtd_theme
 nbsphinx
 nbsphinx_link
