@@ -56,7 +56,6 @@ treasmo.lee\_vec module
 .. automodule:: treasmo.lee_vec
    :members:
    :undoc-members:
-   :show-inheritance:
 
 
 
@@ -67,14 +66,5 @@ treasmo.moran\_vec module
 .. automodule:: treasmo.moran_vec
    :members:
    :undoc-members:
-   :show-inheritance:
 
 
-
-Module contents
----------------
-
-.. automodule:: treasmo
-   :members:
-   :undoc-members:
-   :show-inheritance:

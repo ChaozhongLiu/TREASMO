@@ -47,6 +47,7 @@ def _fill_miss_index(df, n):
 def feature_sparsity(mudata, group_by={}):
     """
     Function to add feature sparisity information in MuData.var
+
     The value is defined as ``#non-zero value / #cells`` in each feature.
 
     Arguments
@@ -289,6 +290,7 @@ def TFBS_match(genes, peaks, ref_fn, min_overlap=1, split_symbol=['-','-']):
     """
     Function to annotate TF with binding site regions
 
+    
     Arguments
     --------------
         genes: List, numpy.array
@@ -312,6 +314,7 @@ def TFBS_match(genes, peaks, ref_fn, min_overlap=1, split_symbol=['-','-']):
             how peak location ID is formatted
                 'chr1-12345-23456' - split_symbol=['-','-']
                 'chr1:12345-23456' - split_symbol=[':','-']
+
 
     Return
     --------------
