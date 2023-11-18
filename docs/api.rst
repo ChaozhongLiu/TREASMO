@@ -10,7 +10,6 @@ treasmo.tl module
 
 .. automodule:: treasmo.tl
    :members:
-   :undoc-members:
    :show-inheritance:
 
 
