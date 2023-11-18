@@ -1,0 +1,1021 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>API &#8212; TREASMO v1.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Quick Start" href="quickstart.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">TREASMO v1.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">API</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/api.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>API</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-treasmo.tl">treasmo.tl module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.PFM2Motif"><code class="docutils literal notranslate"><span class="pre">PFM2Motif()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.TFBS_match"><code class="docutils literal notranslate"><span class="pre">TFBS_match()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.feature_sparsity"><code class="docutils literal notranslate"><span class="pre">feature_sparsity()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.get_gloc_from_atac_data"><code class="docutils literal notranslate"><span class="pre">get_gloc_from_atac_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.motif_summary"><code class="docutils literal notranslate"><span class="pre">motif_summary()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.nearby_peaks"><code class="docutils literal notranslate"><span class="pre">nearby_peaks()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.peak2HomerInput"><code class="docutils literal notranslate"><span class="pre">peak2HomerInput()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.peaks_within_distance"><code class="docutils literal notranslate"><span class="pre">peaks_within_distance()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.run_HOMER_motif"><code class="docutils literal notranslate"><span class="pre">run_HOMER_motif()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-treasmo.core">treasmo.core module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.core.Global_L"><code class="docutils literal notranslate"><span class="pre">Global_L()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.core.Local_L"><code class="docutils literal notranslate"><span class="pre">Local_L()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.core.Morans_I"><code class="docutils literal notranslate"><span class="pre">Morans_I()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.core.Pearsonr"><code class="docutils literal notranslate"><span class="pre">Pearsonr()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-treasmo.ds">treasmo.ds module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.DynamicModule"><code class="docutils literal notranslate"><span class="pre">DynamicModule()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.FindAllMarkers"><code class="docutils literal notranslate"><span class="pre">FindAllMarkers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.FindMarkers"><code class="docutils literal notranslate"><span class="pre">FindMarkers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.FindPathDynamics"><code class="docutils literal notranslate"><span class="pre">FindPathDynamics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.FindPathMarkers"><code class="docutils literal notranslate"><span class="pre">FindPathMarkers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.MarkerFilter"><code class="docutils literal notranslate"><span class="pre">MarkerFilter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.PathDynamics"><code class="docutils literal notranslate"><span class="pre">PathDynamics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.TimeBinData"><code class="docutils literal notranslate"><span class="pre">TimeBinData()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.TimeBinProportion"><code class="docutils literal notranslate"><span class="pre">TimeBinProportion()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.add_feature_sparsity"><code class="docutils literal notranslate"><span class="pre">add_feature_sparsity()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.group_stat"><code class="docutils literal notranslate"><span class="pre">group_stat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.marker_test"><code class="docutils literal notranslate"><span class="pre">marker_test()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-treasmo.pl">treasmo.pl module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.pl.DynamicModule"><code class="docutils literal notranslate"><span class="pre">DynamicModule()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.pl.DynamicSumMtx"><code class="docutils literal notranslate"><span class="pre">DynamicSumMtx()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.pl.LocalCor_Heatmap"><code class="docutils literal notranslate"><span class="pre">LocalCor_Heatmap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.pl.PathDynamics"><code class="docutils literal notranslate"><span class="pre">PathDynamics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.pl.visualize_marker"><code class="docutils literal notranslate"><span class="pre">visualize_marker()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-treasmo.lee_vec">treasmo.lee_vec module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.lee_vec.Spatial_Pearson"><code class="docutils literal notranslate"><span class="pre">Spatial_Pearson</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.lee_vec.Spatial_Pearson.fit"><code class="docutils literal notranslate"><span class="pre">Spatial_Pearson.fit()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.lee_vec.Spatial_Pearson_Local"><code class="docutils literal notranslate"><span class="pre">Spatial_Pearson_Local</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.lee_vec.Spatial_Pearson_Local.fit"><code class="docutils literal notranslate"><span class="pre">Spatial_Pearson_Local.fit()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.lee_vec.get_memory"><code class="docutils literal notranslate"><span class="pre">get_memory()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-treasmo.moran_vec">treasmo.moran_vec module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.moran_vec.Moran"><code class="docutils literal notranslate"><span class="pre">Moran</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.moran_vec.Moran.calc_i"><code class="docutils literal notranslate"><span class="pre">Moran.calc_i()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.moran_vec.get_memory"><code class="docutils literal notranslate"><span class="pre">get_memory()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-treasmo">Module contents</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="api">
+<span id="id1"></span><h1>API<a class="headerlink" href="#api" title="Permalink to this heading">#</a></h1>
+<section id="module-treasmo.tl">
+<span id="treasmo-tl-module"></span><h2>treasmo.tl module<a class="headerlink" href="#module-treasmo.tl" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.tl.PFM2Motif">
+<span class="sig-prename descclassname"><span class="pre">treasmo.tl.</span></span><span class="sig-name descname"><span class="pre">PFM2Motif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detection_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/tl.html#PFM2Motif"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.tl.PFM2Motif" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to convert PFM (Position Frequency Matrix) into Homer Motif file</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.tl.TFBS_match">
+<span class="sig-prename descclassname"><span class="pre">treasmo.tl.</span></span><span class="sig-name descname"><span class="pre">TFBS_match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">genes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peaks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_overlap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['-',</span> <span class="pre">'-']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/tl.html#TFBS_match"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.tl.TFBS_match" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to annotate TF with binding site regions</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.tl.feature_sparsity">
+<span class="sig-prename descclassname"><span class="pre">treasmo.tl.</span></span><span class="sig-name descname"><span class="pre">feature_sparsity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/tl.html#feature_sparsity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.tl.feature_sparsity" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to add feature sparisity information in MuData.var
+The value is defined as <code class="docutils literal notranslate"><span class="pre">#non-zero</span> <span class="pre">value</span> <span class="pre">/</span> <span class="pre">#cells</span></code> in each feature.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.tl.get_gloc_from_atac_data">
+<span class="sig-prename descclassname"><span class="pre">treasmo.tl.</span></span><span class="sig-name descname"><span class="pre">get_gloc_from_atac_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peaks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_symbol</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/tl.html#get_gloc_from_atac_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.tl.get_gloc_from_atac_data" title="Permalink to this definition">#</a></dt>
+<dd><dl class="simple">
+<dt>Helper function to get the genomic locations (including the middle point)of peaks</dt><dd><p>Author: Linhua Wang <a class="reference external" href="mailto:Linhua&#46;Wang&#37;&#52;&#48;bcm&#46;edu">Linhua<span>&#46;</span>Wang<span>&#64;</span>bcm<span>&#46;</span>edu</a>
+<a class="github reference external" href="https://github.com/LiuzLab/Neurips2021/blob/master/task1_utils1.py">LiuzLab/Neurips2021</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.tl.motif_summary">
+<span class="sig-prename descclassname"><span class="pre">treasmo.tl.</span></span><span class="sig-name descname"><span class="pre">motif_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peak_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">homer_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">motif_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_genome</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">homer_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/tl.html#motif_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.tl.motif_summary" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to extract related peaks from motifs of interests.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Motif related peaks information saved in homer_dir/</dt><dd></dd>
+<dt>DataFrame</dt><dd><p>contains peak list and motif matching quality information</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.tl.nearby_peaks">
+<span class="sig-prename descclassname"><span class="pre">treasmo.tl.</span></span><span class="sig-name descname"><span class="pre">nearby_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/tl.html#nearby_peaks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.tl.nearby_peaks" title="Permalink to this definition">#</a></dt>
+<dd><p>Helper function to get regions overlapped with the gene body.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.tl.peak2HomerInput">
+<span class="sig-prename descclassname"><span class="pre">treasmo.tl.</span></span><span class="sig-name descname"><span class="pre">peak2HomerInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peaks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filetype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'peaks'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['-',</span> <span class="pre">'-']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/tl.html#peak2HomerInput"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.tl.peak2HomerInput" title="Permalink to this definition">#</a></dt>
+<dd><p>Helper function to convert peak list to Homer accepted input format</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.tl.peaks_within_distance">
+<span class="sig-prename descclassname"><span class="pre">treasmo.tl.</span></span><span class="sig-name descname"><span class="pre">peaks_within_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">genes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peaks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upstream</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">downstream</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_gtf_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_intersect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GeneSymbol'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['-',</span> <span class="pre">'-']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/tl.html#peaks_within_distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.tl.peaks_within_distance" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to annotate genes with nearby peaks</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.tl.run_HOMER_motif">
+<span class="sig-prename descclassname"><span class="pre">treasmo.tl.</span></span><span class="sig-name descname"><span class="pre">run_HOMER_motif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peaks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_genome</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">homer_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['-',</span> <span class="pre">'-']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/tl.html#run_HOMER_motif"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.tl.run_HOMER_motif" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to run Homer from Python script.
+It will prepare Homer required input file
+and output results in the directory specified</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>DataFrame</dt><dd><p>Homer results saved in out_dir/homer_[prefix]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-treasmo.core">
+<span id="treasmo-core-module"></span><h2>treasmo.core module<a class="headerlink" href="#module-treasmo.core" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.core.Global_L">
+<span class="sig-prename descclassname"><span class="pre">treasmo.core.</span></span><span class="sig-name descname"><span class="pre">Global_L</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pairsDf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['rna',</span> <span class="pre">'atac']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">permutations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_RAM</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/core.html#Global_L"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.core.Global_L" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to calculate the global L index (mean of correlation strength index) for all the pairs in multiome data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>DataFrame</dt><dd><dl class="simple">
+<dt>pairsDf added with extra columns:</dt><dd><p>Global L results
+QC metrics (feature sparsity)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.core.Local_L">
+<span class="sig-prename descclassname"><span class="pre">treasmo.core.</span></span><span class="sig-name descname"><span class="pre">Local_L</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peaks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['rna',</span> <span class="pre">'atac']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rm_dropout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_RAM</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/core.html#Local_L"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.core.Local_L" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to calculate the single-cell gene-peak correlation strength index for all the pairs in multiome data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>MuData</dt><dd><p>added with Local L matrix and gene-peak pair names in <code class="docutils literal notranslate"><span class="pre">mudata.uns</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.core.Morans_I">
+<span class="sig-prename descclassname"><span class="pre">treasmo.core.</span></span><span class="sig-name descname"><span class="pre">Morans_I</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['rna',</span> <span class="pre">'atac']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_RAM</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/core.html#Morans_I"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.core.Morans_I" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to calculate Moran’s I for all the features in multiome data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>MuData</dt><dd><p>added with var[‘Morans.I’]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.core.Pearsonr">
+<span class="sig-prename descclassname"><span class="pre">treasmo.core.</span></span><span class="sig-name descname"><span class="pre">Pearsonr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peaks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['rna',</span> <span class="pre">'atac']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/core.html#Pearsonr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.core.Pearsonr" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to calculate the Pearson correlation between genes and peaks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>DataFrame</dt><dd><p>containing Pearson correlation r, p-value and FDR for all gene-peak pairs</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-treasmo.ds">
+<span id="treasmo-ds-module"></span><h2>treasmo.ds module<a class="headerlink" href="#module-treasmo.ds" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.ds.DynamicModule">
+<span class="sig-prename descclassname"><span class="pre">treasmo.ds.</span></span><span class="sig-name descname"><span class="pre">DynamicModule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pseudotime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iteration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">som_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(2,</span> <span class="pre">2)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/ds.html#DynamicModule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.ds.DynamicModule" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to cluster gene-peak modules by Self-Organizing Map along the trajectory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Dict</dt><dd><p>key is module index, value is time bin data</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.ds.FindAllMarkers">
+<span class="sig-prename descclassname"><span class="pre">treasmo.ds.</span></span><span class="sig-name descname"><span class="pre">FindAllMarkers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['rna',</span> <span class="pre">'atac']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corrct_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bonferroni'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/ds.html#FindAllMarkers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.ds.FindAllMarkers" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to discover regulatory gene-peak markers in all groups
+Target group correlation strength is compared with all remaining groups by t-test.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>DataFrame</dt><dd><p>Differentially regulated pairs statistical test results</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.ds.FindMarkers">
+<span class="sig-prename descclassname"><span class="pre">treasmo.ds.</span></span><span class="sig-name descname"><span class="pre">FindMarkers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['rna',</span> <span class="pre">'atac']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corrct_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bonferroni'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/ds.html#FindMarkers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.ds.FindMarkers" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to compare regulatory gene-peak pairs between two group by t-test.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>DataFrame</dt><dd><p>Differentially regulated pairs statistical test results</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.ds.FindPathDynamics">
+<span class="sig-prename descclassname"><span class="pre">treasmo.ds.</span></span><span class="sig-name descname"><span class="pre">FindPathDynamics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pseudotime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rm_outlier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/ds.html#FindPathDynamics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.ds.FindPathDynamics" title="Permalink to this definition">#</a></dt>
+<dd><p>Detect highly variable gene-peak pairs along the trajectory by correlation strength range (max-min) and variance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>DataFrame</dt><dd><p>Dynamic gene-peak pairs along the trajectory</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.ds.FindPathMarkers">
+<span class="sig-prename descclassname"><span class="pre">treasmo.ds.</span></span><span class="sig-name descname"><span class="pre">FindPathMarkers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['rna',</span> <span class="pre">'atac']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corrct_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bonferroni'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/ds.html#FindPathMarkers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.ds.FindPathMarkers" title="Permalink to this definition">#</a></dt>
+<dd><p>One-to-one comparison of gene-peak correlation among groups in the trajectory path by t-test.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>DataFrame</dt><dd><p>Differentially regulated pairs statistical test results</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.ds.MarkerFilter">
+<span class="sig-prename descclassname"><span class="pre">treasmo.ds.</span></span><span class="sig-name descname"><span class="pre">MarkerFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">statDf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_pct_rna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_pct_atac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean_diff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/ds.html#MarkerFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.ds.MarkerFilter" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to filter markers from statistical test results by sparsity, correlation difference, and p-value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>DataFrame</dt><dd><p>Filtered marker list with the same columns as stat_df</p>
+</dd>
+<dt>if plot==True, also return volcano plot</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.ds.PathDynamics">
+<span class="sig-prename descclassname"><span class="pre">treasmo.ds.</span></span><span class="sig-name descname"><span class="pre">PathDynamics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peaks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pseudotime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/ds.html#PathDynamics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.ds.PathDynamics" title="Permalink to this definition">#</a></dt>
+<dd><p>Quantify regulatory dynamics along the trajectory for a single gene and its regulatory elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>MuData</dt><dd><p>DataFrame added in mudata.uns[‘pathDym’][path][gene] describing correlation and cluster proportion changes along the trajectory</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.ds.TimeBinData">
+<span class="sig-prename descclassname"><span class="pre">treasmo.ds.</span></span><span class="sig-name descname"><span class="pre">TimeBinData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pseudotime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rm_outlier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/ds.html#TimeBinData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.ds.TimeBinData" title="Permalink to this definition">#</a></dt>
+<dd><p>Helper function to generate bined data along trajectory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>DataFrame</dt><dd><p>bined raw data
+Optional: GaussianProcessRegressor fitted data</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.ds.TimeBinProportion">
+<span class="sig-prename descclassname"><span class="pre">treasmo.ds.</span></span><span class="sig-name descname"><span class="pre">TimeBinProportion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pseudotime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/ds.html#TimeBinProportion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.ds.TimeBinProportion" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to calculate bined cell type proportion along trajectory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>DataFrame</dt><dd><p>bined data with pseudotime and cell type proportion</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.ds.add_feature_sparsity">
+<span class="sig-prename descclassname"><span class="pre">treasmo.ds.</span></span><span class="sig-name descname"><span class="pre">add_feature_sparsity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stat_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['rna',</span> <span class="pre">'atac']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/ds.html#add_feature_sparsity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.ds.add_feature_sparsity" title="Permalink to this definition">#</a></dt>
+<dd><p>Helper function to add feature sparsity information in final group comparison results.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.ds.group_stat">
+<span class="sig-prename descclassname"><span class="pre">treasmo.ds.</span></span><span class="sig-name descname"><span class="pre">group_stat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/ds.html#group_stat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.ds.group_stat" title="Permalink to this definition">#</a></dt>
+<dd><p>Function unit to calculate group statitics.
+No need to be called from user end.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.ds.marker_test">
+<span class="sig-prename descclassname"><span class="pre">treasmo.ds.</span></span><span class="sig-name descname"><span class="pre">marker_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_L_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corrct_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bonferroni'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/ds.html#marker_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.ds.marker_test" title="Permalink to this definition">#</a></dt>
+<dd><p>Function unit to perform statistical test with given data.
+No need to be called from user end.</p>
+</dd></dl>
+
+</section>
+<section id="module-treasmo.pl">
+<span id="treasmo-pl-module"></span><h2>treasmo.pl module<a class="headerlink" href="#module-treasmo.pl" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.pl.DynamicModule">
+<span class="sig-prename descclassname"><span class="pre">treasmo.pl.</span></span><span class="sig-name descname"><span class="pre">DynamicModule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">somDict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prpDfin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticks_fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Pseudotime'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Correlation</span> <span class="pre">Strength'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dot_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/pl.html#DynamicModule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.pl.DynamicModule" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to plot the gene-peak modules found in the trajectory by treasmo.ds.DynamicModule</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.pl.DynamicSumMtx">
+<span class="sig-prename descclassname"><span class="pre">treasmo.pl.</span></span><span class="sig-name descname"><span class="pre">DynamicSumMtx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peaks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/pl.html#DynamicSumMtx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.pl.DynamicSumMtx" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to plot regulatory element relationships in heatmap by Spearman correlation</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.pl.LocalCor_Heatmap">
+<span class="sig-prename descclassname"><span class="pre">treasmo.pl.</span></span><span class="sig-name descname"><span class="pre">LocalCor_Heatmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pairs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groupby</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/pl.html#LocalCor_Heatmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.pl.LocalCor_Heatmap" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to visualize the local L matrix by heatmap, and cluster features</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.pl.PathDynamics">
+<span class="sig-prename descclassname"><span class="pre">treasmo.pl.</span></span><span class="sig-name descname"><span class="pre">PathDynamics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peaks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticks_fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Pseudotime'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Correlation</span> <span class="pre">Strength'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dot_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/pl.html#PathDynamics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.pl.PathDynamics" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to visualize the gene-peak pair correlation changes along pseudotime + cell type proportion visualization</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To visualize the results, need to run df.PathDynamics() first.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.pl.visualize_marker">
+<span class="sig-prename descclassname"><span class="pre">treasmo.pl.</span></span><span class="sig-name descname"><span class="pre">visualize_marker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mudata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['rna',</span> <span class="pre">'atac']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'plasma'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'umap'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmaxs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/pl.html#visualize_marker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.pl.visualize_marker" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to visualize the gene-peak pair correlation in user wanted embedding. e.g., UMAP.
+It returns 3 plots: gene expression, peaks accessibility, and gene-peak correlation strength</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Embedding colored by the gene, peak, and the correlation between gene and peak</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-treasmo.lee_vec">
+<span id="treasmo-lee-vec-module"></span><h2>treasmo.lee_vec module<a class="headerlink" href="#module-treasmo.lee_vec" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="treasmo.lee_vec.Spatial_Pearson">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">treasmo.lee_vec.</span></span><span class="sig-name descname"><span class="pre">Spatial_Pearson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connectivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">permutations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">999</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/lee_vec.html#Spatial_Pearson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.lee_vec.Spatial_Pearson" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseEstimator</span></code></p>
+<p>Global Spatial Pearson Correlation Statistic;
+Mean of single-cell gene-peak correlation strength index.</p>
+<p>Adapted and vectorized from <a class="github reference external" href="https://github.com/pysal/esda">pysal/esda</a></p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#treasmo.lee_vec.Spatial_Pearson.fit" title="treasmo.lee_vec.Spatial_Pearson.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(X, Y[, percent, max_RAM, seed])</p></td>
+<td><p>bivariate spatial pearson's R based on Eq. 18 of <a href="#id2"><span class="problematic" id="id3">:cite:`Lee2001`</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code>([deep])</p></td>
+<td><p>Get parameters for this estimator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code>(**params)</p></td>
+<td><p>Set the parameters of this estimator.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="treasmo.lee_vec.Spatial_Pearson.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_RAM</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/lee_vec.html#Spatial_Pearson.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.lee_vec.Spatial_Pearson.fit" title="Permalink to this definition">#</a></dt>
+<dd><p>bivariate spatial pearson’s R based on Eq. 18 of <a href="#id4"><span class="problematic" id="id5">:cite:`Lee2001`</span></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>the fitted estimator.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Technical details and derivations can be found in <a href="#id6"><span class="problematic" id="id7">:cite:`Lee2001`</span></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="treasmo.lee_vec.Spatial_Pearson_Local">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">treasmo.lee_vec.</span></span><span class="sig-name descname"><span class="pre">Spatial_Pearson_Local</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connectivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">permutations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">999</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/lee_vec.html#Spatial_Pearson_Local"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.lee_vec.Spatial_Pearson_Local" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseEstimator</span></code></p>
+<p>Local Spatial Pearson Correlation Statistic;
+Single-cell gene-peak correlation strength index.</p>
+<p>Adapted and vectorized from esda library</p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#treasmo.lee_vec.Spatial_Pearson_Local.fit" title="treasmo.lee_vec.Spatial_Pearson_Local.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(X, Y[, max_RAM, seed])</p></td>
+<td><p>bivariate local pearson's R based on Eq.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code>([deep])</p></td>
+<td><p>Get parameters for this estimator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code>(**params)</p></td>
+<td><p>Set the parameters of this estimator.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="treasmo.lee_vec.Spatial_Pearson_Local.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_RAM</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/lee_vec.html#Spatial_Pearson_Local.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.lee_vec.Spatial_Pearson_Local.fit" title="Permalink to this definition">#</a></dt>
+<dd><p>bivariate local pearson’s R based on Eq. 22 in Lee (2001)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>the fitted estimator.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.lee_vec.get_memory">
+<span class="sig-prename descclassname"><span class="pre">treasmo.lee_vec.</span></span><span class="sig-name descname"><span class="pre">get_memory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/lee_vec.html#get_memory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.lee_vec.get_memory" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-treasmo.moran_vec">
+<span id="treasmo-moran-vec-module"></span><h2>treasmo.moran_vec module<a class="headerlink" href="#module-treasmo.moran_vec" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="treasmo.moran_vec.Moran">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">treasmo.moran_vec.</span></span><span class="sig-name descname"><span class="pre">Moran</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">permutations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/moran_vec.html#Moran"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.moran_vec.Moran" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Moran’s I Global Autocorrelation Statistic</p>
+<p>Adapted from <a class="github reference external" href="https://github.com/pysal/esda">pysal/esda</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>n</strong><span class="classifier">int</span></dt><dd><p>number of observations</p>
+</dd>
+<dt><strong>w</strong><span class="classifier">W</span></dt><dd><p>spatial weights instance</p>
+</dd>
+<dt><strong>transformation</strong><span class="classifier">string</span></dt><dd><p>weights transformation,  default is row-standardized “r”.
+Other options include “B”: binary,  “D”:
+doubly-standardized,  “U”: untransformed
+(general weights), “V”: variance-stabilizing.</p>
+</dd>
+<dt><strong>permutations</strong><span class="classifier">int</span></dt><dd><p>number of random permutations for calculation of
+pseudo-p_values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Technical details and derivations can be found in <a href="#id8"><span class="problematic" id="id9">:cite:`cliff81`</span></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>w</strong><span class="classifier">W</span></dt><dd><p>original w object</p>
+</dd>
+<dt><strong>permutations</strong><span class="classifier">int</span></dt><dd><p>number of permutations</p>
+</dd>
+<dt><strong>I</strong><span class="classifier">array</span></dt><dd><p>value of Moran’s I</p>
+</dd>
+<dt><strong>sim</strong><span class="classifier">array</span></dt><dd><p>(if permutations&gt;0)
+vector of I values for permuted samples</p>
+</dd>
+<dt><strong>p_sim</strong><span class="classifier">array</span></dt><dd><p>(if permutations&gt;0)
+p-value based on permutations (one-tailed)
+null: spatial randomness
+alternative: the observed I is extreme if
+it is either extremely greater or extremely lower
+than the values obtained based on permutations</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#treasmo.moran_vec.Moran.calc_i" title="treasmo.moran_vec.Moran.calc_i"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_i</span></code></a>(X[, seed, max_RAM])</p></td>
+<td><p>Function to calculate Moran's I of all features</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="treasmo.moran_vec.Moran.calc_i">
+<span class="sig-name descname"><span class="pre">calc_i</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_RAM</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/moran_vec.html#Moran.calc_i"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.moran_vec.Moran.calc_i" title="Permalink to this definition">#</a></dt>
+<dd><p>Function to calculate Moran’s I of all features</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>the fitted estimator.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="treasmo.moran_vec.get_memory">
+<span class="sig-prename descclassname"><span class="pre">treasmo.moran_vec.</span></span><span class="sig-name descname"><span class="pre">get_memory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/treasmo/moran_vec.html#get_memory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#treasmo.moran_vec.get_memory" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-treasmo">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-treasmo" title="Permalink to this heading">#</a></h2>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="quickstart.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Quick Start</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-treasmo.tl">treasmo.tl module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.PFM2Motif"><code class="docutils literal notranslate"><span class="pre">PFM2Motif()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.TFBS_match"><code class="docutils literal notranslate"><span class="pre">TFBS_match()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.feature_sparsity"><code class="docutils literal notranslate"><span class="pre">feature_sparsity()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.get_gloc_from_atac_data"><code class="docutils literal notranslate"><span class="pre">get_gloc_from_atac_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.motif_summary"><code class="docutils literal notranslate"><span class="pre">motif_summary()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.nearby_peaks"><code class="docutils literal notranslate"><span class="pre">nearby_peaks()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.peak2HomerInput"><code class="docutils literal notranslate"><span class="pre">peak2HomerInput()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.peaks_within_distance"><code class="docutils literal notranslate"><span class="pre">peaks_within_distance()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.tl.run_HOMER_motif"><code class="docutils literal notranslate"><span class="pre">run_HOMER_motif()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-treasmo.core">treasmo.core module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.core.Global_L"><code class="docutils literal notranslate"><span class="pre">Global_L()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.core.Local_L"><code class="docutils literal notranslate"><span class="pre">Local_L()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.core.Morans_I"><code class="docutils literal notranslate"><span class="pre">Morans_I()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.core.Pearsonr"><code class="docutils literal notranslate"><span class="pre">Pearsonr()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-treasmo.ds">treasmo.ds module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.DynamicModule"><code class="docutils literal notranslate"><span class="pre">DynamicModule()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.FindAllMarkers"><code class="docutils literal notranslate"><span class="pre">FindAllMarkers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.FindMarkers"><code class="docutils literal notranslate"><span class="pre">FindMarkers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.FindPathDynamics"><code class="docutils literal notranslate"><span class="pre">FindPathDynamics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.FindPathMarkers"><code class="docutils literal notranslate"><span class="pre">FindPathMarkers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.MarkerFilter"><code class="docutils literal notranslate"><span class="pre">MarkerFilter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.PathDynamics"><code class="docutils literal notranslate"><span class="pre">PathDynamics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.TimeBinData"><code class="docutils literal notranslate"><span class="pre">TimeBinData()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.TimeBinProportion"><code class="docutils literal notranslate"><span class="pre">TimeBinProportion()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.add_feature_sparsity"><code class="docutils literal notranslate"><span class="pre">add_feature_sparsity()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.group_stat"><code class="docutils literal notranslate"><span class="pre">group_stat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.ds.marker_test"><code class="docutils literal notranslate"><span class="pre">marker_test()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-treasmo.pl">treasmo.pl module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.pl.DynamicModule"><code class="docutils literal notranslate"><span class="pre">DynamicModule()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.pl.DynamicSumMtx"><code class="docutils literal notranslate"><span class="pre">DynamicSumMtx()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.pl.LocalCor_Heatmap"><code class="docutils literal notranslate"><span class="pre">LocalCor_Heatmap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.pl.PathDynamics"><code class="docutils literal notranslate"><span class="pre">PathDynamics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.pl.visualize_marker"><code class="docutils literal notranslate"><span class="pre">visualize_marker()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-treasmo.lee_vec">treasmo.lee_vec module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.lee_vec.Spatial_Pearson"><code class="docutils literal notranslate"><span class="pre">Spatial_Pearson</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.lee_vec.Spatial_Pearson.fit"><code class="docutils literal notranslate"><span class="pre">Spatial_Pearson.fit()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.lee_vec.Spatial_Pearson_Local"><code class="docutils literal notranslate"><span class="pre">Spatial_Pearson_Local</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.lee_vec.Spatial_Pearson_Local.fit"><code class="docutils literal notranslate"><span class="pre">Spatial_Pearson_Local.fit()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.lee_vec.get_memory"><code class="docutils literal notranslate"><span class="pre">get_memory()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-treasmo.moran_vec">treasmo.moran_vec module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.moran_vec.Moran"><code class="docutils literal notranslate"><span class="pre">Moran</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.moran_vec.Moran.calc_i"><code class="docutils literal notranslate"><span class="pre">Moran.calc_i()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasmo.moran_vec.get_memory"><code class="docutils literal notranslate"><span class="pre">get_memory()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-treasmo">Module contents</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Chaozhong Liu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Zhandong Liu&#39;s Lab at Baylor College of Medicine.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

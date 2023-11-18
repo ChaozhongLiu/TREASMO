@@ -3,4 +3,3 @@ nbsphinx
 nbsphinx_link
 numpydoc
 sphinx_book_theme
-treasmo

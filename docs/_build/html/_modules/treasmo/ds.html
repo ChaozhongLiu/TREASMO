@@ -1,0 +1,1118 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>treasmo.ds &#8212; TREASMO v1.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/treasmo/ds';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">TREASMO v1.1.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for treasmo.ds</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">anndata</span> <span class="k">as</span> <span class="nn">ad</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">treasmo.core</span> <span class="k">as</span> <span class="nn">core</span>
+<span class="kn">from</span> <span class="nn">minisom</span> <span class="kn">import</span> <span class="n">MiniSom</span>
+
+
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.multitest</span> <span class="kn">import</span> <span class="n">fdrcorrection</span>
+<span class="kn">from</span> <span class="nn">sklearn.gaussian_process</span> <span class="kn">import</span> <span class="n">GaussianProcessRegressor</span>
+
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">scanpy</span> <span class="k">as</span> <span class="nn">sc</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Chaozhong Liu&quot;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;czliubioinfo@gmail.com&quot;</span>
+
+
+<span class="c1">#=========================================================================================</span>
+<span class="c1"># Cluster / Group marker identification</span>
+<span class="c1"># Trajectory-based regulatory dynamics</span>
+<span class="c1"># TF regulatory dynamics</span>
+<span class="c1"># Statistical test for dynamics</span>
+<span class="c1">#=========================================================================================</span>
+
+
+
+
+<span class="c1">#=========================================================================================</span>
+<span class="c1"># Group marker identification</span>
+<span class="c1">#=========================================================================================</span>
+
+<div class="viewcode-block" id="FindAllMarkers"><a class="viewcode-back" href="../../api.html#treasmo.ds.FindAllMarkers">[docs]</a><span class="k">def</span> <span class="nf">FindAllMarkers</span><span class="p">(</span><span class="n">mudata</span><span class="p">,</span> <span class="n">ident</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rna&#39;</span><span class="p">,</span><span class="s1">&#39;atac&#39;</span><span class="p">],</span> <span class="n">corrct_method</span><span class="o">=</span><span class="s1">&#39;bonferroni&#39;</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to discover regulatory gene-peak markers in all groups</span>
+<span class="sd">    Target group correlation strength is compared with all remaining groups by t-test.</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">        mudata: MuData</span>
+<span class="sd">            single-cell multi-omics data saved as MuData object</span>
+<span class="sd">        </span>
+<span class="sd">        ident: str</span>
+<span class="sd">            column name in ``mudata.obs`` containing group labels</span>
+
+<span class="sd">        mods: List[str, str]</span>
+<span class="sd">            scRNA-seq and scATAC-seq modality name in MuData object</span>
+
+<span class="sd">        corrct_method: str</span>
+<span class="sd">            multi-test correction method, one of [&#39;bonferroni&#39;, &#39;fdr&#39;]</span>
+
+<span class="sd">        seed: int</span>
+<span class="sd">            random seed to make the results reproducible</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ---------</span>
+<span class="sd">        DataFrame</span>
+<span class="sd">            Differentially regulated pairs statistical test results</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="s1">&#39;Local_L&#39;</span> <span class="ow">in</span> <span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">local_L_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;Local_L&#39;</span><span class="p">])</span>
+        <span class="n">local_L_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;Local_L_names&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No previously calculated local correlation matrix found. </span><span class="se">\n</span><span class="s2">Please calculate the matrix first.&quot;</span><span class="p">)</span>
+        <span class="c1">#mudata = core.Local_L(mudata, genes, peaks,</span>
+        <span class="c1">#                      mods=mods,</span>
+        <span class="c1">#                      rm_dropout=False,</span>
+        <span class="c1">#                      seed=1, max_RAM=16)</span>
+
+        <span class="c1">#local_L_df = pd.DataFrame(mudata.uns[&#39;Local_L&#39;])</span>
+        <span class="c1">#local_L_df.columns = mudata.uns[&#39;Local_L_names&#39;]</span>
+        <span class="c1">#print(&quot;========= Finished ========&quot;)</span>
+
+
+    <span class="c1"># cluster comparison</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Performing statistical test for correlation differences among identities...&quot;</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="c1"># get clusters have at least 2 mini-bulk</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="n">mudata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">ident</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="n">groups</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">groups</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+    <span class="n">local_L_df</span><span class="p">[</span><span class="s1">&#39;clus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mudata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">ident</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+    <span class="n">stat_df_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">13</span><span class="p">)))</span>
+    <span class="n">stat_df_all</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;Mean.1&#39;</span><span class="p">,</span><span class="s1">&#39;Mean.2&#39;</span><span class="p">,</span><span class="s1">&#39;Std.1&#39;</span><span class="p">,</span><span class="s1">&#39;Std.2&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;obsn.1&#39;</span><span class="p">,</span><span class="s1">&#39;obsn.2&#39;</span><span class="p">,</span><span class="s1">&#39;score&#39;</span><span class="p">,</span><span class="s1">&#39;p.value&#39;</span><span class="p">,</span><span class="s1">&#39;p.adj&#39;</span><span class="p">,</span><span class="s1">&#39;Frac.gene.1&#39;</span><span class="p">,</span><span class="s1">&#39;Frac.peak.1&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+        <span class="n">stat_df</span> <span class="o">=</span> <span class="n">marker_test</span><span class="p">(</span><span class="n">local_L_df</span><span class="p">,</span> <span class="n">group_1</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">group_2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">corrct_method</span><span class="o">=</span><span class="n">corrct_method</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Frac.gene.1&#39;</span><span class="p">],</span> <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Frac.peak.1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">add_feature_sparsity</span><span class="p">(</span><span class="n">stat_df</span><span class="p">,</span> <span class="n">mudata</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="n">mods</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Cluster </span><span class="si">%s</span><span class="s1"> sparsity information not found. Skip.&#39;</span><span class="o">%</span><span class="n">group</span><span class="p">)</span>
+            <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Frac.gene.1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+            <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Frac.peak.1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+
+        <span class="n">stat_df_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">stat_df_all</span><span class="p">,</span><span class="n">stat_df</span><span class="p">])</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Completed! </span><span class="si">%.2f</span><span class="s2">s past.&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">start</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">stat_df_all</span></div>
+
+
+
+<div class="viewcode-block" id="FindMarkers"><a class="viewcode-back" href="../../api.html#treasmo.ds.FindMarkers">[docs]</a><span class="k">def</span> <span class="nf">FindMarkers</span><span class="p">(</span><span class="n">mudata</span><span class="p">,</span> <span class="n">ident</span><span class="p">,</span> <span class="n">group_1</span><span class="p">,</span> <span class="n">group_2</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rna&#39;</span><span class="p">,</span><span class="s1">&#39;atac&#39;</span><span class="p">],</span> <span class="n">corrct_method</span><span class="o">=</span><span class="s1">&#39;bonferroni&#39;</span><span class="p">,</span><span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to compare regulatory gene-peak pairs between two group by t-test.</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">        mudata: MuData</span>
+<span class="sd">            single-cell multi-omics data saved as MuData object</span>
+<span class="sd">        </span>
+<span class="sd">        ident: str</span>
+<span class="sd">            column name in mudata.obs containing group labels</span>
+
+<span class="sd">        group_1: str, int</span>
+<span class="sd">            first group name in ident to compare with the second</span>
+
+<span class="sd">        group_2: str, int</span>
+<span class="sd">            second group name in ident to compare with the first</span>
+
+<span class="sd">        mods: List[str, str]</span>
+<span class="sd">            scRNA-seq and scATAC-seq modality name in MuData object</span>
+
+<span class="sd">        corrct_method: str</span>
+<span class="sd">            multi-test correction method, one of [&#39;bonferroni&#39;, &#39;fdr&#39;]</span>
+
+<span class="sd">        seed: int</span>
+<span class="sd">            random seed to make the results reproducible</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ---------</span>
+<span class="sd">        DataFrame</span>
+<span class="sd">            Differentially regulated pairs statistical test results</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="s1">&#39;Local_L&#39;</span> <span class="ow">in</span> <span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">local_L_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;Local_L&#39;</span><span class="p">])</span>
+        <span class="n">local_L_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;Local_L_names&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No previously calculated local correlation matrix found. </span><span class="se">\n</span><span class="s2">Please calculate the matrix first.&quot;</span><span class="p">)</span>
+        <span class="c1">#mudata = core.Local_L(mudata, genes, peaks,</span>
+        <span class="c1">#                      mods=mods,</span>
+        <span class="c1">#                      rm_dropout=False,</span>
+        <span class="c1">#                      seed=1, max_RAM=16)</span>
+
+        <span class="c1">#local_L_df = pd.DataFrame(mudata.uns[&#39;Local_L&#39;])</span>
+        <span class="c1">#local_L_df.columns = mudata.uns[&#39;Local_L_names&#39;]</span>
+        <span class="c1">#print(&quot;========= Finished ========&quot;)</span>
+
+
+    <span class="c1"># cluster comparison</span>
+    <span class="k">if</span> <span class="n">log</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Perform statistical test for correlation differences between selected two group...&quot;</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="n">local_L_df</span><span class="p">[</span><span class="s1">&#39;clus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mudata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">ident</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">stat_df</span> <span class="o">=</span> <span class="n">marker_test</span><span class="p">(</span><span class="n">local_L_df</span><span class="p">,</span> <span class="n">group_1</span><span class="o">=</span><span class="n">group_1</span><span class="p">,</span> <span class="n">group_2</span><span class="o">=</span><span class="n">group_2</span><span class="p">,</span> <span class="n">corrct_method</span><span class="o">=</span><span class="n">corrct_method</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Frac.gene.1&#39;</span><span class="p">],</span> <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Frac.peak.1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">add_feature_sparsity</span><span class="p">(</span><span class="n">stat_df</span><span class="p">,</span> <span class="n">mudata</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="n">mods</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group_1</span><span class="p">)</span>
+        <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Frac.gene.2&#39;</span><span class="p">],</span> <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Frac.peak.2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">add_feature_sparsity</span><span class="p">(</span><span class="n">stat_df</span><span class="p">,</span> <span class="n">mudata</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="n">mods</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group_2</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">log</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Sparsity information not found. Skip.&#39;</span><span class="p">)</span>
+        <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Frac.gene.1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+        <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Frac.peak.1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+        <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Frac.gene.2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+        <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Frac.peak.2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+
+    <span class="k">if</span> <span class="n">log</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Completed! </span><span class="si">%.2f</span><span class="s2">s past.&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">start</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">stat_df</span></div>
+
+
+
+
+<div class="viewcode-block" id="marker_test"><a class="viewcode-back" href="../../api.html#treasmo.ds.marker_test">[docs]</a><span class="k">def</span> <span class="nf">marker_test</span><span class="p">(</span><span class="n">local_L_df</span><span class="p">,</span> <span class="n">group_1</span><span class="p">,</span> <span class="n">group_2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">corrct_method</span><span class="o">=</span><span class="s1">&#39;bonferroni&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function unit to perform statistical test with given data.</span>
+<span class="sd">    No need to be called from user end.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1">#stat_df.columns = [&#39;group&#39;,&#39;name&#39;,&#39;Mean.1&#39;,&#39;Mean.2&#39;,&#39;Std.1&#39;,</span>
+    <span class="c1">#                       &#39;Std.2&#39;,&#39;obsn.1&#39;,&#39;obsn.2&#39;,&#39;score&#39;,&#39;p.value&#39;,&#39;p.adj&#39;]</span>
+
+    <span class="n">stat_df</span> <span class="o">=</span> <span class="n">group_stat</span><span class="p">(</span><span class="n">local_L_df</span><span class="p">,</span> <span class="n">group_1</span><span class="o">=</span><span class="n">group_1</span><span class="p">,</span> <span class="n">group_2</span><span class="o">=</span><span class="n">group_2</span><span class="p">)</span>
+    <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+    <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;p.value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">stat_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">ttest</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind_from_stats</span><span class="p">(</span>
+                <span class="n">mean1</span><span class="o">=</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Mean.1&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">std1</span><span class="o">=</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Std.1&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">nobs1</span><span class="o">=</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;obsn.1&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">mean2</span><span class="o">=</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Mean.2&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">std2</span><span class="o">=</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Std.2&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">nobs2</span><span class="o">=</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;obsn.2&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
+                <span class="n">equal_var</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Welch&#39;s</span>
+                <span class="p">)</span>
+        <span class="n">stat_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">stat_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ttest</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">stat_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">stat_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;p.value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ttest</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">corrct_method</span> <span class="o">==</span> <span class="s1">&#39;fdr&#39;</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;p.adj&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fdrcorrection</span><span class="p">(</span>
+                    <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;p.value&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;indep&#39;</span>
+                <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">corrct_method</span> <span class="o">==</span> <span class="s1">&#39;bonferroni&#39;</span><span class="p">:</span>
+        <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;p.adj&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;p.value&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">stat_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1">#print(&quot;Please select correction methods from [&#39;fdr&#39;, &#39;bonferroni&#39;]!&quot;)</span>
+        <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;p.adj&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+
+    <span class="c1">#stat_df[&#39;Frac.gene&#39;], stat_df[&#39;Frac.peak&#39;] = _add_clus_sparsity(stat_df, anndat_multiome, group)</span>
+
+    <span class="c1">#stat_df_all = pd.concat([stat_df_all,stat_df])</span>
+
+    <span class="k">return</span> <span class="n">stat_df</span></div>
+
+
+<div class="viewcode-block" id="group_stat"><a class="viewcode-back" href="../../api.html#treasmo.ds.group_stat">[docs]</a><span class="k">def</span> <span class="nf">group_stat</span><span class="p">(</span><span class="n">local_L</span><span class="p">,</span> <span class="n">group_1</span><span class="p">,</span> <span class="n">group_2</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function unit to calculate group statitics.</span>
+<span class="sd">    No need to be called from user end.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">groups_label</span> <span class="o">=</span> <span class="n">local_L</span><span class="p">[</span><span class="s1">&#39;clus&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">mask_1</span> <span class="o">=</span> <span class="n">groups_label</span> <span class="o">==</span> <span class="n">group_1</span>
+    <span class="n">obsn1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mask_1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">group_2</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">group_2</span> <span class="o">=</span> <span class="s1">&#39;others&#39;</span>
+        <span class="n">mask_2</span> <span class="o">=</span> <span class="n">groups_label</span> <span class="o">!=</span> <span class="n">group_1</span>
+        <span class="n">obsn2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mask_2</span><span class="p">)</span> <span class="o">-</span> <span class="n">obsn1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">mask_2</span> <span class="o">=</span> <span class="n">groups_label</span> <span class="o">==</span> <span class="n">group_2</span>
+        <span class="n">obsn2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mask_2</span><span class="p">)</span>
+
+    <span class="n">local_L_df</span> <span class="o">=</span> <span class="n">local_L</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">local_L_df</span><span class="p">[</span><span class="s1">&#39;clus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;others&#39;</span>
+    <span class="n">local_L_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask_1</span><span class="p">,</span> <span class="s1">&#39;clus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">group_1</span>
+    <span class="n">local_L_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask_2</span><span class="p">,</span> <span class="s1">&#39;clus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">group_2</span>
+
+    <span class="n">mean_df</span> <span class="o">=</span> <span class="n">local_L_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;clus&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1">#.reset_index()</span>
+    <span class="n">mean_df</span> <span class="o">=</span> <span class="n">mean_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">group_1</span><span class="p">,</span><span class="n">group_2</span><span class="p">],:]</span>
+    <span class="n">std_df</span> <span class="o">=</span> <span class="n">local_L_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;clus&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+    <span class="n">std_df</span> <span class="o">=</span> <span class="n">std_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">group_1</span><span class="p">,</span><span class="n">group_2</span><span class="p">],:]</span>
+
+    <span class="n">mean_df</span> <span class="o">=</span> <span class="n">mean_df</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">mean_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Mean.1&#39;</span><span class="p">,</span><span class="s1">&#39;Mean.2&#39;</span><span class="p">]</span>
+
+    <span class="n">std_df</span> <span class="o">=</span> <span class="n">std_df</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">std_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Std.1&#39;</span><span class="p">,</span><span class="s1">&#39;Std.2&#39;</span><span class="p">]</span>
+
+    <span class="n">stat_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">mean_df</span><span class="p">,</span> <span class="n">std_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">stat_df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="n">stat_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">stat_df</span> <span class="o">=</span> <span class="n">stat_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">group_2</span> <span class="o">==</span> <span class="s1">&#39;others&#39;</span><span class="p">:</span>
+        <span class="n">stat_df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;group&#39;</span><span class="p">,</span><span class="n">group_1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">stat_df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;group.1&#39;</span><span class="p">,</span><span class="n">group_1</span><span class="p">)</span>
+        <span class="n">stat_df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;group.2&#39;</span><span class="p">,</span><span class="n">group_2</span><span class="p">)</span>
+
+    <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;obsn.1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obsn1</span>
+    <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;obsn.2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obsn2</span>
+    
+    <span class="k">return</span> <span class="n">stat_df</span></div>
+
+
+<div class="viewcode-block" id="add_feature_sparsity"><a class="viewcode-back" href="../../api.html#treasmo.ds.add_feature_sparsity">[docs]</a><span class="k">def</span> <span class="nf">add_feature_sparsity</span><span class="p">(</span><span class="n">stat_df</span><span class="p">,</span> <span class="n">mudata</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rna&#39;</span><span class="p">,</span><span class="s1">&#39;atac&#39;</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper function to add feature sparsity information in final group comparison results.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">GP_G</span> <span class="o">=</span> <span class="p">[</span><span class="n">gp</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">gp</span> <span class="ow">in</span> <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span>
+    <span class="n">GP_P</span> <span class="o">=</span> <span class="p">[</span><span class="n">gp</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">gp</span> <span class="ow">in</span> <span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span>
+    
+    <span class="k">return</span> <span class="n">mudata</span><span class="o">.</span><span class="n">mod</span><span class="p">[</span><span class="n">mods</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">var</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">GP_G</span><span class="p">,:][</span><span class="s1">&#39;Frac.</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">group</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span>\
+           <span class="n">mudata</span><span class="o">.</span><span class="n">mod</span><span class="p">[</span><span class="n">mods</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">var</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">GP_P</span><span class="p">,:][</span><span class="s1">&#39;Frac.</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">group</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span></div>
+
+
+
+
+<div class="viewcode-block" id="MarkerFilter"><a class="viewcode-back" href="../../api.html#treasmo.ds.MarkerFilter">[docs]</a><span class="k">def</span> <span class="nf">MarkerFilter</span><span class="p">(</span><span class="n">statDf</span><span class="p">,</span> <span class="n">min_pct_rna</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">min_pct_atac</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">mean_diff</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">p_cutoff</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to filter markers from statistical test results by sparsity, correlation difference, and p-value</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">        statDf: DataFrame</span>
+<span class="sd">            Differentially regulated pairs statistical test results</span>
+<span class="sd">        </span>
+<span class="sd">        min_pct_rna: float</span>
+<span class="sd">            sparsity filter cutoff: percentage of cells that express the gene</span>
+
+<span class="sd">        min_pct_atac: float</span>
+<span class="sd">            sparsity filter cutoff: percentage of cells that have the peak</span>
+
+<span class="sd">        mean_diff: float</span>
+<span class="sd">            mean correlation strength difference between the group and background (all other groups)</span>
+
+<span class="sd">        p_cutoff: float</span>
+<span class="sd">            adjusted p-value cutoff</span>
+
+<span class="sd">        plot: bool</span>
+<span class="sd">            if True, plot volcano plot</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ---------</span>
+<span class="sd">        DataFrame</span>
+<span class="sd">            Filtered marker list with the same columns as stat_df</span>
+
+<span class="sd">        if plot==True, also return volcano plot</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">stat_df</span> <span class="o">=</span> <span class="n">statDf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">chained_assignment</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">stat_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;score.abs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="s1">&#39;group&#39;</span> <span class="ow">in</span> <span class="n">stat_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">stat_df</span> <span class="o">=</span> <span class="n">stat_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">,</span><span class="s1">&#39;score.abs&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">stat_df</span> <span class="o">=</span> <span class="n">stat_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;group.1&#39;</span><span class="p">,</span><span class="s1">&#39;score.abs&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Frac.gene.1&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">min_pct_rna</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Frac.peak.1&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">min_pct_atac</span><span class="p">)</span>
+    <span class="n">stat_df</span> <span class="o">=</span> <span class="n">stat_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,:]</span>
+
+    <span class="n">filt</span> <span class="o">=</span> <span class="p">((</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;p.adj&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">p_cutoff</span><span class="p">)</span> <span class="o">&amp;</span>
+        <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Mean.1&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Mean.2&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">mean_diff</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Mean.1&#39;</span><span class="p">][</span><span class="o">~</span><span class="n">filt</span><span class="p">]</span><span class="o">-</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Mean.2&#39;</span><span class="p">][</span><span class="o">~</span><span class="n">filt</span><span class="p">],</span>
+                    <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;p.adj&#39;</span><span class="p">][</span><span class="o">~</span><span class="n">filt</span><span class="p">]),</span> <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Mean.1&#39;</span><span class="p">][</span><span class="n">filt</span><span class="p">]</span><span class="o">-</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;Mean.2&#39;</span><span class="p">][</span><span class="n">filt</span><span class="p">],</span>
+                    <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">stat_df</span><span class="p">[</span><span class="s1">&#39;p.adj&#39;</span><span class="p">][</span><span class="n">filt</span><span class="p">]),</span> <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;mean_1 - mean_2&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;-log10(p.adj)&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">stat_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">filt</span><span class="p">,:]</span></div>
+
+
+
+
+<span class="c1">#=========================================================================================</span>
+<span class="c1"># Trajectory Path Analysis</span>
+<span class="c1">#=========================================================================================</span>
+
+
+<div class="viewcode-block" id="FindPathMarkers"><a class="viewcode-back" href="../../api.html#treasmo.ds.FindPathMarkers">[docs]</a><span class="k">def</span> <span class="nf">FindPathMarkers</span><span class="p">(</span><span class="n">mudata</span><span class="p">,</span> <span class="n">ident</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">mods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rna&#39;</span><span class="p">,</span><span class="s1">&#39;atac&#39;</span><span class="p">],</span> <span class="n">corrct_method</span><span class="o">=</span><span class="s1">&#39;bonferroni&#39;</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    One-to-one comparison of gene-peak correlation among groups in the trajectory path by t-test.</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">        mudata: MuData</span>
+<span class="sd">            single-cell multi-omics data saved as MuData object</span>
+<span class="sd">        </span>
+<span class="sd">        ident: str</span>
+<span class="sd">            column name in ``mudata.obs`` containing group labels</span>
+
+<span class="sd">        path: List</span>
+<span class="sd">            list of clusters ordered by their sequence on the trajectory. A path here should have no branch.</span>
+
+<span class="sd">        mods: List[str, str]</span>
+<span class="sd">            scRNA-seq and scATAC-seq modality name in MuData object</span>
+
+<span class="sd">        corrct_method: str</span>
+<span class="sd">            multi-test correction method, one of [&#39;bonferroni&#39;, &#39;fdr&#39;]</span>
+
+<span class="sd">        seed: int</span>
+<span class="sd">            random seed to make the results reproducible</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ---------</span>
+<span class="sd">        DataFrame</span>
+<span class="sd">            Differentially regulated pairs statistical test results</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># One-to-one comparison</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="n">dfList</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)):</span>
+
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)):</span>
+
+            <span class="n">stat_df</span> <span class="o">=</span> <span class="n">FindMarkers</span><span class="p">(</span><span class="n">mudata</span><span class="p">,</span> <span class="n">ident</span><span class="p">,</span> 
+                                  <span class="n">group_1</span><span class="o">=</span><span class="n">path</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">group_2</span><span class="o">=</span><span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> 
+                                  <span class="n">mods</span><span class="o">=</span><span class="n">mods</span><span class="p">,</span> 
+                                  <span class="n">corrct_method</span><span class="o">=</span><span class="n">corrct_method</span><span class="p">,</span> 
+                                  <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">dfList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stat_df</span><span class="p">)</span>
+
+    <span class="n">statDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfList</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Completed! </span><span class="si">%.3f</span><span class="s2">s past.&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">start</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">statDf</span></div>
+
+
+
+
+<span class="k">def</span> <span class="nf">_fit_data</span><span class="p">(</span><span class="n">timebinDf</span><span class="p">,</span> <span class="n">xfit</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper function to fit correlation strength along trajectory by GaussianProcessRegressor.</span>
+<span class="sd">    No need to be called from user end.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">xdata</span> <span class="o">=</span> <span class="n">timebinDf</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">ydata</span> <span class="o">=</span> <span class="n">timebinDf</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+    <span class="n">filter_na</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span>
+    <span class="n">xdata</span> <span class="o">=</span> <span class="n">xdata</span><span class="p">[</span><span class="n">filter_na</span><span class="p">]</span>
+    <span class="n">ydata</span> <span class="o">=</span> <span class="n">ydata</span><span class="p">[</span><span class="n">filter_na</span><span class="p">]</span>
+
+    <span class="c1"># Compute the Gaussian process fit</span>
+    <span class="n">gp</span> <span class="o">=</span> <span class="n">GaussianProcessRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">gp</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xdata</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">ydata</span><span class="p">)</span>
+    <span class="c1">#xfit = np.linspace(data[&#39;time&#39;].min(), data[&#39;time&#39;].max(), bins)</span>
+    <span class="n">yfit</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xfit</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">return_std</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">yfit</span>
+
+
+
+<div class="viewcode-block" id="TimeBinData"><a class="viewcode-back" href="../../api.html#treasmo.ds.TimeBinData">[docs]</a><span class="k">def</span> <span class="nf">TimeBinData</span><span class="p">(</span><span class="n">mudata</span><span class="p">,</span> <span class="n">ident</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">pseudotime</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span>
+                <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">rm_outlier</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fitted</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper function to generate bined data along trajectory.</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    --------------</span>
+<span class="sd">        mudata: MuData</span>
+<span class="sd">            single-cell multi-omics data saved as MuData object</span>
+<span class="sd">            It must have correlation strength index calculated.</span>
+<span class="sd">        </span>
+<span class="sd">        ident: str</span>
+<span class="sd">            column name in ``mudata.obs`` containing trajectory group labels</span>
+
+<span class="sd">        path: List</span>
+<span class="sd">            list of clusters ordered by their sequence on the trajectory. A path here should have no branch.</span>
+
+<span class="sd">        pseudotime: str</span>
+<span class="sd">            column name in ``mudata.obs`` containing trajectory pseudotime labels</span>
+
+<span class="sd">        features: List, numpy.array</span>
+<span class="sd">            List of gene-peak pair names. Can be selected from ``muData.uns[&#39;Local_L_names&#39;]``</span>
+
+<span class="sd">        bins: int</span>
+<span class="sd">            number of bins to divide the trajectory into</span>
+<span class="sd">        </span>
+<span class="sd">        rm_outlier: bool</span>
+<span class="sd">            whether or not adding cap and limit strength index within +- 2*std</span>
+<span class="sd">        </span>
+<span class="sd">        fitted: int, default is None</span>
+<span class="sd">            if an int, return GaussianProcessRegressor fitted data with ``fitted`` bins.</span>
+<span class="sd">            if None, return only bined raw data</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ---------</span>
+<span class="sd">        DataFrame</span>
+<span class="sd">            bined raw data</span>
+<span class="sd">            Optional: GaussianProcessRegressor fitted data</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">cells_bool</span> <span class="o">=</span> <span class="n">mudata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">ident</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="c1">#features = mudata.uns[&#39;Local_L_names&#39;]</span>
+    <span class="n">CorDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;Local_L&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;Local_L_names&#39;</span><span class="p">])</span>
+    <span class="n">CorDf</span> <span class="o">=</span> <span class="n">CorDf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cells_bool</span><span class="p">,</span> <span class="n">features</span><span class="p">]</span>
+
+    <span class="n">CorDf</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mudata</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cells_bool</span><span class="p">,</span> <span class="n">pseudotime</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">CorDf</span> <span class="o">=</span> <span class="n">CorDf</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Construct time bins</span>
+    <span class="n">time_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">CorDf</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">CorDf</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    <span class="n">N_interval</span> <span class="o">=</span> <span class="n">bins</span>
+    <span class="n">interv_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">time_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">time_range</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">N_interval</span>
+
+    <span class="n">group_intev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">CorDf</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">time_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mf">1e-3</span><span class="p">,</span> 
+                                                  <span class="n">time_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">interv_range</span><span class="p">,</span>
+                                                  <span class="n">interv_range</span><span class="p">))</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">CorDf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">group_intev</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Empty bins removed. %.i bins left&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">rm_outlier</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">]</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">fitted</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fitDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">fitted</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span> <span class="n">columns</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+        <span class="n">timefit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">fitted</span><span class="p">)</span>
+        <span class="n">fitDf</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">timefit</span>
+
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">features</span><span class="p">:</span>
+            <span class="n">tmpDf</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">feature</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">tmpDf</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span>
+            <span class="n">fitDf</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">=</span> <span class="n">_fit_data</span><span class="p">(</span><span class="n">tmpDf</span><span class="p">,</span> <span class="n">timefit</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">fitDf</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+
+
+
+<div class="viewcode-block" id="TimeBinProportion"><a class="viewcode-back" href="../../api.html#treasmo.ds.TimeBinProportion">[docs]</a><span class="k">def</span> <span class="nf">TimeBinProportion</span><span class="p">(</span><span class="n">mudata</span><span class="p">,</span> <span class="n">ident</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">pseudotime</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to calculate bined cell type proportion along trajectory</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    --------------</span>
+<span class="sd">    mudata: MuData</span>
+<span class="sd">            single-cell multi-omics data saved as MuData object</span>
+<span class="sd">        </span>
+<span class="sd">        ident: str</span>
+<span class="sd">            column name in ``mudata.obs`` containing trajectory group labels</span>
+
+<span class="sd">        path: List</span>
+<span class="sd">            list of clusters ordered by their sequence on the trajectory. A path here should have no branch.</span>
+
+<span class="sd">        pseudotime: str</span>
+<span class="sd">            column name in ``mudata.obs`` containing trajectory pseudotime labels</span>
+
+<span class="sd">        bins: int</span>
+<span class="sd">            number of bins to divide the trajectory into</span>
+<span class="sd">        </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ---------</span>
+<span class="sd">        DataFrame</span>
+<span class="sd">            bined data with pseudotime and cell type proportion</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Construct DataFrame</span>
+    <span class="n">cells_bool</span> <span class="o">=</span> <span class="n">mudata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">ident</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">CorDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">mudata</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cells_bool</span><span class="p">,</span> <span class="n">ident</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">path</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span>
+                         <span class="n">columns</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">CorDf</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mudata</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cells_bool</span><span class="p">,</span> <span class="n">pseudotime</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+    <span class="n">CorDf</span> <span class="o">=</span> <span class="n">CorDf</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Construct time bins</span>
+    <span class="n">time_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">CorDf</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">CorDf</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    <span class="n">N_interval</span> <span class="o">=</span> <span class="n">bins</span>
+    <span class="n">interv_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">time_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">time_range</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">N_interval</span>
+
+    <span class="n">group_intev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">CorDf</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">time_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mf">1e-3</span><span class="p">,</span> 
+                                                  <span class="n">time_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">interv_range</span><span class="p">,</span>
+                                                  <span class="n">interv_range</span><span class="p">))</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">CorDf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">group_intev</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Empty bins removed. %.i bins left&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">ident</span>
+
+    <span class="k">return</span> <span class="n">data</span></div>
+
+
+
+
+
+<div class="viewcode-block" id="FindPathDynamics"><a class="viewcode-back" href="../../api.html#treasmo.ds.FindPathDynamics">[docs]</a><span class="k">def</span> <span class="nf">FindPathDynamics</span><span class="p">(</span><span class="n">mudata</span><span class="p">,</span> <span class="n">ident</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">pseudotime</span><span class="p">,</span> <span class="n">rm_outlier</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                     <span class="n">var_cutoff</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">range_cutoff</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Detect highly variable gene-peak pairs along the trajectory by correlation strength range (max-min) and variance</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    --------------</span>
+<span class="sd">        mudata: MuData</span>
+<span class="sd">            single-cell multi-omics data saved as MuData object</span>
+<span class="sd">        </span>
+<span class="sd">        ident: str</span>
+<span class="sd">            column name in ``mudata.obs`` containing trajectory group labels</span>
+
+<span class="sd">        path: List</span>
+<span class="sd">            list of clusters ordered by their sequence on the trajectory. A path here should have no branch.</span>
+
+<span class="sd">        pseudotime: str</span>
+<span class="sd">            column name in ``mudata.obs`` containing trajectory pseudotime labels</span>
+
+<span class="sd">        bins: int (argument passed to TimeBinData)</span>
+<span class="sd">            number of bins to divide the trajectory into</span>
+
+<span class="sd">        rm_outlier: bool (argument passed to TimeBinData)</span>
+<span class="sd">            whether or not adding cap and limit strength index within +- 2*std</span>
+<span class="sd">        </span>
+<span class="sd">        var_cutoff: float</span>
+<span class="sd">            minimum variance cutoff</span>
+<span class="sd">        </span>
+<span class="sd">        range_cutoff: float</span>
+<span class="sd">            minimum range (max - min) cutoff</span>
+<span class="sd">        </span>
+<span class="sd">        plot: bool</span>
+<span class="sd">            if True, plot volcano plot </span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    ---------</span>
+<span class="sd">        DataFrame</span>
+<span class="sd">            Dynamic gene-peak pairs along the trajectory</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Construct DataFrame</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;Local_L_names&#39;</span><span class="p">]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">TimeBinData</span><span class="p">(</span><span class="n">mudata</span><span class="p">,</span> <span class="n">ident</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">pseudotime</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span>
+                       <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">rm_outlier</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">sumDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">features</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;variance&#39;</span><span class="p">])</span>
+    <span class="n">sumDf</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">features</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">sumDf</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">features</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="n">sumDf</span><span class="p">[</span><span class="s1">&#39;range&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sumDf</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">sumDf</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span>
+    <span class="n">sumDf</span> <span class="o">=</span> <span class="n">sumDf</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;variance&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">filt</span> <span class="o">=</span> <span class="p">((</span><span class="n">sumDf</span><span class="p">[</span><span class="s1">&#39;variance&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">var_cutoff</span><span class="p">)</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">sumDf</span><span class="p">[</span><span class="s1">&#39;range&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">range_cutoff</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sumDf</span><span class="p">[</span><span class="s1">&#39;range&#39;</span><span class="p">][</span><span class="o">~</span><span class="n">filt</span><span class="p">],</span>
+                    <span class="n">sumDf</span><span class="p">[</span><span class="s1">&#39;variance&#39;</span><span class="p">][</span><span class="o">~</span><span class="n">filt</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sumDf</span><span class="p">[</span><span class="s1">&#39;range&#39;</span><span class="p">][</span><span class="n">filt</span><span class="p">],</span>
+                    <span class="n">sumDf</span><span class="p">[</span><span class="s1">&#39;variance&#39;</span><span class="p">][</span><span class="n">filt</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;min - max&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;variance&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">sumDf</span><span class="p">[</span><span class="n">filt</span><span class="p">]</span></div>
+
+
+
+
+
+<div class="viewcode-block" id="PathDynamics"><a class="viewcode-back" href="../../api.html#treasmo.ds.PathDynamics">[docs]</a><span class="k">def</span> <span class="nf">PathDynamics</span><span class="p">(</span><span class="n">mudata</span><span class="p">,</span> <span class="n">gene</span><span class="p">,</span> <span class="n">peaks</span><span class="p">,</span> <span class="n">ident</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">pseudotime</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Quantify regulatory dynamics along the trajectory for a single gene and its regulatory elements.</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">        mudata: MuData</span>
+<span class="sd">            single-cell multi-omics data saved as MuData object</span>
+<span class="sd">        </span>
+<span class="sd">        gene: str</span>
+<span class="sd">            a single gene name</span>
+
+<span class="sd">        peak: List, numpy.array</span>
+<span class="sd">            a list of peaks correlated with the gene (gene-peak pair should exist in mudata.uns[&#39;Local_L_names&#39;])</span>
+
+<span class="sd">        ident: str</span>
+<span class="sd">            column name in ``mudata.obs`` containing trajectory group labels</span>
+
+<span class="sd">        path: List</span>
+<span class="sd">            list of clusters ordered by their sequence on the trajectory. A path here should have no branch.</span>
+
+<span class="sd">        pseudotime: str</span>
+<span class="sd">            pseudotime label for the trajectory saved in ``mudata.obs``</span>
+
+<span class="sd">        bins: int</span>
+<span class="sd">            number of bins to divide the trajectory into</span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    ---------</span>
+<span class="sd">        MuData</span>
+<span class="sd">            DataFrame added in mudata.uns[&#39;pathDym&#39;][path][gene] describing correlation and cluster proportion changes along the trajectory</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gene</span><span class="si">}</span><span class="s2">~</span><span class="si">{</span><span class="n">peak</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">peak</span> <span class="ow">in</span> <span class="n">peaks</span><span class="p">]</span>
+
+    <span class="c1"># Construct DataFrame</span>
+    <span class="n">cells_bool</span> <span class="o">=</span> <span class="n">mudata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">ident</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">CorDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;Local_L&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;Local_L_names&#39;</span><span class="p">])</span>
+    <span class="n">CorDf</span> <span class="o">=</span> <span class="n">CorDf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cells_bool</span><span class="p">,</span> <span class="n">features</span><span class="p">]</span>
+
+    <span class="n">CorDf</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mudata</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cells_bool</span><span class="p">,</span> <span class="n">pseudotime</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">CorDf</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">mudata</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cells_bool</span><span class="p">,</span> <span class="n">ident</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">path</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+    <span class="n">CorDf</span> <span class="o">=</span> <span class="n">CorDf</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Construct time bins</span>
+    <span class="n">time_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">CorDf</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">CorDf</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    <span class="n">N_interval</span> <span class="o">=</span> <span class="n">bins</span>
+    <span class="n">interv_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">time_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">time_range</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">N_interval</span>
+
+    <span class="n">group_intev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">CorDf</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">time_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mf">1e-3</span><span class="p">,</span> 
+                                                  <span class="n">time_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">interv_range</span><span class="p">,</span>
+                                                  <span class="n">interv_range</span><span class="p">))</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    agg_dict = {feature:[&#39;mean&#39;, &#39;std&#39;]}</span>
+<span class="sd">    agg_dict[&#39;time&#39;] = &#39;mean&#39;</span>
+<span class="sd">    for ct in path:</span>
+<span class="sd">        agg_dict[ct] = &#39;mean&#39;</span>
+
+<span class="sd">    data = CorDf.groupby(group_intev).agg(agg_dict).dropna() #.mean().dropna()</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">CorDf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">group_intev</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Empty bins removed. %.i bins left&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">path_name</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s1">&#39;pathDym&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;pathDym&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">if</span> <span class="n">path_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;pathDym&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;pathDym&#39;</span><span class="p">][</span><span class="n">path_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">gene</span><span class="p">:</span><span class="n">data</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;pathDym&#39;</span><span class="p">][</span><span class="n">path_name</span><span class="p">][</span><span class="n">gene</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+    
+    <span class="k">return</span> <span class="n">mudata</span></div>
+
+
+
+<div class="viewcode-block" id="DynamicModule"><a class="viewcode-back" href="../../api.html#treasmo.ds.DynamicModule">[docs]</a><span class="k">def</span> <span class="nf">DynamicModule</span><span class="p">(</span><span class="n">mudata</span><span class="p">,</span> <span class="n">ident</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">pseudotime</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">fitted</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                  <span class="n">num_iteration</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">som_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to cluster gene-peak modules by Self-Organizing Map along the trajectory</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">        mudata: MuData</span>
+<span class="sd">            single-cell multi-omics data saved as MuData object</span>
+<span class="sd">        </span>
+<span class="sd">        ident: str</span>
+<span class="sd">            column name in ``mudata.obs`` containing trajectory group labels</span>
+
+<span class="sd">        path: List</span>
+<span class="sd">            list of clusters ordered by their sequence on the trajectory. A path here should have no branch.</span>
+
+<span class="sd">        pseudotime: str</span>
+<span class="sd">            pseudotime label for the trajectory saved in ``mudata.obs``</span>
+
+<span class="sd">        bins: int</span>
+<span class="sd">            number of bins to divide the trajectory into</span>
+<span class="sd">        </span>
+<span class="sd">        fitted: int</span>
+<span class="sd">            number of bins to divide the trajectory into for GaussianProcessRegressor fitted data</span>
+<span class="sd">            ``bins`` sets bined data for later plotting;</span>
+<span class="sd">            ``fitted`` sets bined data for clustering;</span>
+<span class="sd">            It is recommended to keep the two the same</span>
+<span class="sd">    </span>
+<span class="sd">        num_iteration: int</span>
+<span class="sd">            maximum number of iteration to optimize the SOM</span>
+<span class="sd">        </span>
+<span class="sd">        som_shape: Tuple[int, int]</span>
+<span class="sd">            shape of the map, defines number and similarity structure of modules</span>
+
+<span class="sd">        sigma: float</span>
+<span class="sd">            the radius of the different neighbors in the SOM</span>
+
+<span class="sd">        learning_rate: float</span>
+<span class="sd">            optimization speed, how much weights are adjusted during each iteration</span>
+
+<span class="sd">        random_seed: int</span>
+<span class="sd">            random seed to make the results reproducible</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    ---------</span>
+<span class="sd">        Dict</span>
+<span class="sd">            key is module index, value is time bin data</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">features</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="n">mudata</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;Local_L_names&#39;</span><span class="p">]</span>
+
+    <span class="n">data</span><span class="p">,</span> <span class="n">fitDf</span> <span class="o">=</span> <span class="n">TimeBinData</span><span class="p">(</span><span class="n">mudata</span><span class="p">,</span> <span class="n">ident</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">pseudotime</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span>
+                              <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">rm_outlier</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fitted</span><span class="o">=</span><span class="n">fitted</span><span class="p">)</span>
+
+
+    <span class="n">som_mtx</span> <span class="o">=</span> <span class="n">fitDf</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">som_mtx</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="n">som_mtx</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">som_mtx</span><span class="p">[</span><span class="n">som_mtx</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">som_mtx</span><span class="p">[</span><span class="n">som_mtx</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start training...&quot;</span><span class="p">)</span>
+    <span class="n">som</span> <span class="o">=</span> <span class="n">MiniSom</span><span class="p">(</span><span class="n">som_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">som_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">som_mtx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">,</span>
+                  <span class="n">neighborhood_function</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="n">random_seed</span><span class="p">)</span>
+
+    <span class="n">som</span><span class="o">.</span><span class="n">train_batch</span><span class="p">(</span><span class="n">som_mtx</span><span class="p">,</span> <span class="n">num_iteration</span><span class="o">=</span><span class="n">num_iteration</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># record module index</span>
+    <span class="n">winner_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">som</span><span class="o">.</span><span class="n">winner</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">som_mtx</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">cluster_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel_multi_index</span><span class="p">(</span><span class="n">winner_coordinates</span><span class="p">,</span> <span class="n">som_shape</span><span class="p">)</span>
+    <span class="n">somDict</span> <span class="o">=</span> <span class="p">{</span><span class="n">clsi</span><span class="p">:</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">cluster_index</span><span class="o">==</span><span class="n">clsi</span><span class="p">,</span> <span class="p">[</span><span class="kc">True</span><span class="p">]])]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">clsi</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">cluster_index</span><span class="p">)}</span>
+
+    <span class="k">return</span> <span class="n">somDict</span></div>
+
+
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Chaozhong Liu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Zhandong Liu&#39;s Lab at Baylor College of Medicine.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
