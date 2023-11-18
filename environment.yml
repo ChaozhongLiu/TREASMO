@@ -1,7 +1,8 @@
 name: myenv
 channels:
-  - defaults
   - conda-forge
+  - defaults
+
 dependencies:
   - python=3.10.13
   - numpy=1.22
