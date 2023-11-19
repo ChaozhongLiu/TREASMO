@@ -2,7 +2,8 @@
 [![License](https://img.shields.io/github/license/ChaozhongLiu/DyberPet.svg)](LICENSE)
 ![Python Version](https://img.shields.io/badge/python-3.x-blue.svg)
 ![TREASMO Version](https://img.shields.io/badge/TREASMO-v1.1.1-green.svg)  
-![Documentation Status](https://readthedocs.org/projects/treasmo/badge/?version=latest)
+[![Documentation Status](https://readthedocs.org/projects/treasmo/badge/?version=latest)](https://treasmo.readthedocs.io/en/latest/?badge=latest)
+
 
 **TREASMO** is a Transcription regulation analysis toolkit for single-cell multi-omics data. It quantifies the single-cell level gene-peak correlation strength, based on which a series of analysis and visualization functions are built to help researchers understand their multi-omics data.  
 
