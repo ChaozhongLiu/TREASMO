@@ -286,9 +286,10 @@ document.write(`
 <div class="viewcode-block" id="feature_sparsity"><a class="viewcode-back" href="../../api.html#treasmo.tl.feature_sparsity">[docs]</a><span class="k">def</span> <span class="nf">feature_sparsity</span><span class="p">(</span><span class="n">mudata</span><span class="p">,</span> <span class="n">group_by</span><span class="o">=</span><span class="p">{}):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to add feature sparisity information in MuData.var</span>
+
 <span class="sd">    The value is defined as ``#non-zero value / #cells`` in each feature.</span>
 
-<span class="sd">    Arguments</span>
+<span class="sd">    Parameters</span>
 <span class="sd">    --------------</span>
 <span class="sd">        mudata: MuData</span>
 <span class="sd">            single-cell multi-omics data saved as MuData object</span>
@@ -298,7 +299,7 @@ document.write(`
 
 <span class="sd">            Example: {&#39;rna&#39;:&#39;cell_type&#39;, &#39;atac&#39;:&#39;cell_type&#39;}</span>
 
-<span class="sd">    Return</span>
+<span class="sd">    Returns</span>
 <span class="sd">    --------------</span>
 <span class="sd">        MuData</span>
 <span class="sd">            var[&#39;Frac.all&#39;]</span>
@@ -349,9 +350,9 @@ document.write(`
 
 <div class="viewcode-block" id="get_gloc_from_atac_data"><a class="viewcode-back" href="../../api.html#treasmo.tl.get_gloc_from_atac_data">[docs]</a><span class="k">def</span> <span class="nf">get_gloc_from_atac_data</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="n">split_symbol</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Helper function to get the genomic locations (including the middle point)of peaks</span>
-<span class="sd">        Author: Linhua Wang Linhua.Wang@bcm.edu</span>
-<span class="sd">        https://github.com/LiuzLab/Neurips2021/blob/master/task1_utils1.py</span>
+<span class="sd">    Helper function to get the genomic locations (including the middle point) of peaks</span>
+
+<span class="sd">    \*No need to call from user end</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">glocs</span> <span class="o">=</span> <span class="n">peaks</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
     <span class="n">glocs</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">glocs</span> <span class="k">if</span> <span class="s1">&#39;chr&#39;</span> <span class="ow">in</span> <span class="n">c</span><span class="p">]</span>
@@ -375,7 +376,9 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Helper function to get regions overlapped with the gene body.</span>
 
-<span class="sd">    Arguments</span>
+<span class="sd">    \*No need to call from user end</span>
+
+<span class="sd">    Parameters</span>
 <span class="sd">    --------------</span>
 <span class="sd">        min_op: int</span>
 <span class="sd">            The peak and gene have to be at least ``min_op`` overlapped to be considered overlapped.</span>
@@ -394,7 +397,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to annotate genes with nearby peaks</span>
 
-<span class="sd">    Arguments</span>
+<span class="sd">    Parameters</span>
 <span class="sd">    --------------</span>
 <span class="sd">        genes: List, numpy.array</span>
 <span class="sd">            gene list to be annotated</span>
@@ -410,9 +413,11 @@ document.write(`
 
 <span class="sd">        ref_gtf_fn: str</span>
 <span class="sd">            GTF format file containing gene location information</span>
-<span class="sd">                see example at https://github.com/ChaozhongLiu/scGREAT/tree/main/replication/data</span>
-<span class="sd">                - Homo_sapiens.GRCh38.104.GeneLoc.Tab.txt</span>
-<span class="sd">                - Mus_musculus.GRCm38.100.GeneLoc.Tab.txt</span>
+<span class="sd">            see example at https://github.com/ChaozhongLiu/scGREAT/tree/main/replication/data</span>
+
+<span class="sd">            - Homo_sapiens.GRCh38.104.GeneLoc.Tab.txt</span>
+<span class="sd">            </span>
+<span class="sd">            - Mus_musculus.GRCm38.100.GeneLoc.Tab.txt</span>
 
 <span class="sd">        no_intersect: bool</span>
 <span class="sd">            if the candidate peak lies in another gene&#39;s body, remove the peak or not</span>
@@ -422,10 +427,12 @@ document.write(`
 
 <span class="sd">        split_symbol: List[str, str]</span>
 <span class="sd">            how peak location ID is formatted</span>
-<span class="sd">                &#39;chr1-12345-23456&#39; - split_symbol=[&#39;-&#39;,&#39;-&#39;]</span>
-<span class="sd">                &#39;chr1:12345-23456&#39; - split_symbol=[&#39;:&#39;,&#39;-&#39;]</span>
 
-<span class="sd">    Return</span>
+<span class="sd">            &#39;chr1-12345-23456&#39; - split_symbol=[&#39;-&#39;,&#39;-&#39;]</span>
+
+<span class="sd">            &#39;chr1:12345-23456&#39; - split_symbol=[&#39;:&#39;,&#39;-&#39;]</span>
+
+<span class="sd">    Returns</span>
 <span class="sd">    --------------</span>
 <span class="sd">        DataFrame</span>
 <span class="sd">            contains gene annotation information</span>
@@ -528,7 +535,8 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to annotate TF with binding site regions</span>
 
-<span class="sd">    Arguments</span>
+
+<span class="sd">    Parameters</span>
 <span class="sd">    --------------</span>
 <span class="sd">        genes: List, numpy.array</span>
 <span class="sd">            gene list to be annotated</span>
@@ -538,10 +546,17 @@ document.write(`
 
 <span class="sd">        ref_fn: str</span>
 <span class="sd">            BED format file containing gene binding site location information</span>
+
 <span class="sd">            see example below from JASPAR TFBS genome track (https://jaspar.genereg.net/genome-tracks/)</span>
+<span class="sd">                </span>
+<span class="sd">            .. code-block:: bash</span>
+<span class="sd">            </span>
 <span class="sd">                chr1    280     298     AGL3    821     -</span>
+
 <span class="sd">                chr1    309     327     AGL3    823     +</span>
+
 <span class="sd">                chr1    309     327     AGL3    882     -</span>
+
 <span class="sd">                chr1    1577    1595    AGL3    823     +</span>
 <span class="sd">        </span>
 <span class="sd">        min_overlap: int</span>
@@ -549,10 +564,13 @@ document.write(`
 
 <span class="sd">        split_symbol: List[str, str]</span>
 <span class="sd">            how peak location ID is formatted</span>
-<span class="sd">                &#39;chr1-12345-23456&#39; - split_symbol=[&#39;-&#39;,&#39;-&#39;]</span>
-<span class="sd">                &#39;chr1:12345-23456&#39; - split_symbol=[&#39;:&#39;,&#39;-&#39;]</span>
 
-<span class="sd">    Return</span>
+<span class="sd">            &#39;chr1-12345-23456&#39; - split_symbol=[&#39;-&#39;,&#39;-&#39;]</span>
+
+<span class="sd">            &#39;chr1:12345-23456&#39; - split_symbol=[&#39;:&#39;,&#39;-&#39;]</span>
+
+
+<span class="sd">    Returns</span>
 <span class="sd">    --------------</span>
 <span class="sd">        DataFrame</span>
 <span class="sd">            contains TF annotation information</span>
@@ -626,7 +644,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to convert PFM (Position Frequency Matrix) into Homer Motif file</span>
 
-<span class="sd">    Arguments</span>
+<span class="sd">    Parameters</span>
 <span class="sd">    --------------</span>
 <span class="sd">        file_name: str</span>
 <span class="sd">            Path to PFM file, see example at https://jaspar.elixir.no/docs/#jaspar-matrix-formats</span>
@@ -676,7 +694,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Helper function to convert peak list to Homer accepted input format</span>
 
-<span class="sd">    Arguments</span>
+<span class="sd">    Parameters</span>
 <span class="sd">    --------------</span>
 <span class="sd">        peaks: List, numpy.array</span>
 <span class="sd">            peaks list to convert</span>
@@ -689,8 +707,10 @@ document.write(`
 <span class="sd">        </span>
 <span class="sd">        split_symbol: List[str, str]</span>
 <span class="sd">            how peak location ID is formatted</span>
-<span class="sd">                &#39;chr1-12345-23456&#39; - split_symbol=[&#39;-&#39;,&#39;-&#39;]</span>
-<span class="sd">                &#39;chr1:12345-23456&#39; - split_symbol=[&#39;:&#39;,&#39;-&#39;]</span>
+
+<span class="sd">            &#39;chr1-12345-23456&#39; - split_symbol=[&#39;-&#39;,&#39;-&#39;]</span>
+
+<span class="sd">            &#39;chr1:12345-23456&#39; - split_symbol=[&#39;:&#39;,&#39;-&#39;]</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -722,8 +742,8 @@ document.write(`
 <span class="sd">    It will prepare Homer required input file</span>
 <span class="sd">    and output results in the directory specified</span>
 
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    -------------</span>
 <span class="sd">        peaks: List, numpy.array</span>
 <span class="sd">            peaks of interests</span>
 
@@ -741,8 +761,10 @@ document.write(`
 
 <span class="sd">        split_symbol: List[str, str]</span>
 <span class="sd">            how peak location ID is formatted</span>
-<span class="sd">                &#39;chr1-12345-23456&#39; - split_symbol=[&#39;-&#39;,&#39;-&#39;]</span>
-<span class="sd">                &#39;chr1:12345-23456&#39; - split_symbol=[&#39;:&#39;,&#39;-&#39;]</span>
+
+<span class="sd">            &#39;chr1-12345-23456&#39; - split_symbol=[&#39;-&#39;,&#39;-&#39;]</span>
+
+<span class="sd">            &#39;chr1:12345-23456&#39; - split_symbol=[&#39;:&#39;,&#39;-&#39;]</span>
 <span class="sd">        </span>
 <span class="sd">        size: int</span>
 <span class="sd">            Homer paramter, the size of the region used for motif finding</span>
@@ -802,8 +824,8 @@ document.write(`
 <span class="sd">    Function to extract related peaks from motifs of interests.</span>
 
 
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ------------</span>
 <span class="sd">        peak_file: str</span>
 <span class="sd">            out_dir/prefix.peaks.bed file generated in run_HOMER_motif()</span>
 

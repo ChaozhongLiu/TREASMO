@@ -40,8 +40,8 @@ def LocalCor_Heatmap(mudata, pairs, groupby, cluster=True, save=None, **kwds):
     """
     Function to visualize the local L matrix by heatmap, and cluster features
 
-    Arguments
-    ---------
+    Parameters
+    ------------
         mudata: MuData
             single-cell multi-omics data saved as MuData object
 
@@ -94,7 +94,8 @@ def LocalCor_Heatmap(mudata, pairs, groupby, cluster=True, save=None, **kwds):
 
 def _Heatmap_cluster(anndat_L, groupby, save=None, **kwds):
     """
-    Helper function to plot heatmap with clustering
+    Helper function to plot heatmap with clustering.
+    No need to be called from user end.
     """
 
     # Determine features order in heatmap
@@ -136,7 +137,8 @@ def _Heatmap_cluster(anndat_L, groupby, save=None, **kwds):
 def _Heatmap_nocluster(anndat_L, groupby, save=None, **kwds):
 
     """
-    Helper function to plot heatmap without clustering
+    Helper function to plot heatmap without clustering.
+    No need to be called from user end.
     """
 
     if save is None:
@@ -169,10 +171,11 @@ def visualize_marker(mudata, gene, peak, mods=['rna','atac'],
 
     """
     Function to visualize the gene-peak pair correlation in user wanted embedding. e.g., UMAP.
+
     It returns 3 plots: gene expression, peaks accessibility, and gene-peak correlation strength
 
-    Arguments
-    ---------
+    Parameters
+    ------------
         mudata: MuData
             single-cell multi-omics data saved as MuData object
 
@@ -284,8 +287,8 @@ def PathDynamics(mudata, ident, path, gene, peaks=None,
 
     .. note:: To visualize the results, need to run df.PathDynamics() first.
 
-    Arguments
-    ---------
+    Parameters
+    ------------
         mudata: MuData
             single-cell multi-omics data saved as MuData object
             It must have correlation strength index calculated.
@@ -319,6 +322,7 @@ def PathDynamics(mudata, ident, path, gene, peaks=None,
 
         curve_colors: List, numpy.array
             curve colors for each of the gene-peak pair correlation;
+
             if not specified, defaul color palette will be applied.
 
         dot_size: int, float
@@ -329,7 +333,9 @@ def PathDynamics(mudata, ident, path, gene, peaks=None,
 
         ident_colors: List, numpy.array
             colors of each cluster to be plotted in the proportion bar;
+
             If not specified, function will look for uns[IDENT_colors] first;
+
             If not found, default color palette will be applied.
 
         show_legend: bool
@@ -453,7 +459,7 @@ def _ComplexCurvePlot(curveDf, prpDf, f1_ax1, f1_ax2, xlim=None, ylim=None,
                       ident_colors=None):
 
     """
-    Helper function to plot dynamic curves with proportion changes;
+    Helper function to plot dynamic curves with proportion changes.
     No need to be called from user end.
     """
     
@@ -515,7 +521,7 @@ def _ComplexCurvePlot(curveDf, prpDf, f1_ax1, f1_ax2, xlim=None, ylim=None,
 def _curve_plot(data, feature, colors, dot_size, linewidth, xlim=None, ylim=None, ax=None):
 
     """
-    Helper function to plot dynamic curves;
+    Helper function to plot dynamic curves.
     No need to be called from user end.
     """
 
@@ -576,7 +582,7 @@ def _curve_plot(data, feature, colors, dot_size, linewidth, xlim=None, ylim=None
 def _prp_var(data, path, colors, xlim=None, ax=None):
 
     """
-    Helper function to plot proportion bar;
+    Helper function to plot proportion bar.
     No need to be called from user end.
     """
 
@@ -612,10 +618,11 @@ def DynamicSumMtx(mudata, ident, path, gene, peaks=None,
     """
     Function to plot regulatory element relationships in heatmap by Spearman correlation
     
-    Arguments
-    ---------
+    Parameters
+    ------------
         mudata: MuData
             single-cell multi-omics data saved as MuData object
+
             It must have correlation strength index calculated.
         
         ident: str
@@ -723,11 +730,12 @@ def DynamicModule(mudata, somDict, prpDfin, xlim=None, ylim=None,
     """
     Function to plot the gene-peak modules found in the trajectory by treasmo.ds.DynamicModule
 
-    Arguments
-    ---------
+    Parameters
+    ------------
         mudata: MuData
             single-cell multi-omics data saved as MuData object
-            Run treasmo.ds.DynamicModule beforehead.
+
+            Run ``treasmo.ds.DynamicModule`` beforehead.
         
         somDict: dict
             output from treasmo.ds.DynamicModule containing modules found
@@ -757,25 +765,28 @@ def DynamicModule(mudata, somDict, prpDfin, xlim=None, ylim=None,
             labels for x/y axis
 
         curve_colors: List, numpy.array
-            curve colors for each of the gene-peak pair correlation;
-            if not specified, defaul color palette will be applied.
+            Curve colors for each of the gene-peak pair correlation;
+
+            If not specified, defaul color palette will be applied.
 
         dot_size: int, float
-            dot size in plot
+            Dot size in plot
 
         linewidth: int, float
             curve width
 
         ident_colors: List, numpy.array
-            colors of each cluster to be plotted in the proportion bar;
+            Colors of each cluster to be plotted in the proportion bar;
+
             If not specified, function will look for uns[IDENT_colors] first;
+
             If not found, default color palette will be applied.
 
         show_legend: bool
             Show color legend or not
 
         save: str
-            if provided, heatmap will be saved in the file path
+            If provided, heatmap will be saved in the file path
 
     
     """

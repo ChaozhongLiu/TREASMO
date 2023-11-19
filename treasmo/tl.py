@@ -50,7 +50,7 @@ def feature_sparsity(mudata, group_by={}):
 
     The value is defined as ``#non-zero value / #cells`` in each feature.
 
-    Arguments
+    Parameters
     --------------
         mudata: MuData
             single-cell multi-omics data saved as MuData object
@@ -60,7 +60,7 @@ def feature_sparsity(mudata, group_by={}):
 
             Example: {'rna':'cell_type', 'atac':'cell_type'}
 
-    Return
+    Returns
     --------------
         MuData
             var['Frac.all']
@@ -111,9 +111,9 @@ def feature_sparsity(mudata, group_by={}):
 
 def get_gloc_from_atac_data(peaks, split_symbol):
     """
-    Helper function to get the genomic locations (including the middle point)of peaks
-        Author: Linhua Wang Linhua.Wang@bcm.edu
-        https://github.com/LiuzLab/Neurips2021/blob/master/task1_utils1.py
+    Helper function to get the genomic locations (including the middle point) of peaks
+
+    \*No need to call from user end
     """
     glocs = peaks.tolist()
     glocs = [c for c in glocs if 'chr' in c]
@@ -137,7 +137,9 @@ def nearby_peaks(g_array, min_op=1):
     """
     Helper function to get regions overlapped with the gene body.
 
-    Arguments
+    \*No need to call from user end
+
+    Parameters
     --------------
         min_op: int
             The peak and gene have to be at least ``min_op`` overlapped to be considered overlapped.
@@ -156,7 +158,7 @@ def peaks_within_distance(genes, peaks, upstream, downstream, ref_gtf_fn,
     """
     Function to annotate genes with nearby peaks
 
-    Arguments
+    Parameters
     --------------
         genes: List, numpy.array
             gene list to be annotated
@@ -172,9 +174,11 @@ def peaks_within_distance(genes, peaks, upstream, downstream, ref_gtf_fn,
 
         ref_gtf_fn: str
             GTF format file containing gene location information
-                see example at https://github.com/ChaozhongLiu/scGREAT/tree/main/replication/data
-                - Homo_sapiens.GRCh38.104.GeneLoc.Tab.txt
-                - Mus_musculus.GRCm38.100.GeneLoc.Tab.txt
+            see example at https://github.com/ChaozhongLiu/scGREAT/tree/main/replication/data
+
+            - Homo_sapiens.GRCh38.104.GeneLoc.Tab.txt
+            
+            - Mus_musculus.GRCm38.100.GeneLoc.Tab.txt
 
         no_intersect: bool
             if the candidate peak lies in another gene's body, remove the peak or not
@@ -184,10 +188,12 @@ def peaks_within_distance(genes, peaks, upstream, downstream, ref_gtf_fn,
 
         split_symbol: List[str, str]
             how peak location ID is formatted
-                'chr1-12345-23456' - split_symbol=['-','-']
-                'chr1:12345-23456' - split_symbol=[':','-']
 
-    Return
+            'chr1-12345-23456' - split_symbol=['-','-']
+
+            'chr1:12345-23456' - split_symbol=[':','-']
+
+    Returns
     --------------
         DataFrame
             contains gene annotation information
@@ -290,8 +296,8 @@ def TFBS_match(genes, peaks, ref_fn, min_overlap=1, split_symbol=['-','-']):
     """
     Function to annotate TF with binding site regions
 
-    
-    Arguments
+
+    Parameters
     --------------
         genes: List, numpy.array
             gene list to be annotated
@@ -301,10 +307,17 @@ def TFBS_match(genes, peaks, ref_fn, min_overlap=1, split_symbol=['-','-']):
 
         ref_fn: str
             BED format file containing gene binding site location information
+
             see example below from JASPAR TFBS genome track (https://jaspar.genereg.net/genome-tracks/)
+                
+            .. code-block:: bash
+            
                 chr1    280     298     AGL3    821     -
+
                 chr1    309     327     AGL3    823     +
+
                 chr1    309     327     AGL3    882     -
+
                 chr1    1577    1595    AGL3    823     +
         
         min_overlap: int
@@ -312,11 +325,13 @@ def TFBS_match(genes, peaks, ref_fn, min_overlap=1, split_symbol=['-','-']):
 
         split_symbol: List[str, str]
             how peak location ID is formatted
-                'chr1-12345-23456' - split_symbol=['-','-']
-                'chr1:12345-23456' - split_symbol=[':','-']
+
+            'chr1-12345-23456' - split_symbol=['-','-']
+
+            'chr1:12345-23456' - split_symbol=[':','-']
 
 
-    Return
+    Returns
     --------------
         DataFrame
             contains TF annotation information
@@ -390,7 +405,7 @@ def PFM2Motif(file_name, out_file, detection_threshold=0):
     """
     Function to convert PFM (Position Frequency Matrix) into Homer Motif file
 
-    Arguments
+    Parameters
     --------------
         file_name: str
             Path to PFM file, see example at https://jaspar.elixir.no/docs/#jaspar-matrix-formats
@@ -440,7 +455,7 @@ def peak2HomerInput(peaks, out_file, filetype='peaks', split_symbol=['-','-']):
     """
     Helper function to convert peak list to Homer accepted input format
 
-    Arguments
+    Parameters
     --------------
         peaks: List, numpy.array
             peaks list to convert
@@ -453,8 +468,10 @@ def peak2HomerInput(peaks, out_file, filetype='peaks', split_symbol=['-','-']):
         
         split_symbol: List[str, str]
             how peak location ID is formatted
-                'chr1-12345-23456' - split_symbol=['-','-']
-                'chr1:12345-23456' - split_symbol=[':','-']
+
+            'chr1-12345-23456' - split_symbol=['-','-']
+
+            'chr1:12345-23456' - split_symbol=[':','-']
 
     """
 
@@ -486,8 +503,8 @@ def run_HOMER_motif(peaks, out_dir, prefix, ref_genome,
     It will prepare Homer required input file
     and output results in the directory specified
 
-    Arguments
-    ---------
+    Parameters
+    -------------
         peaks: List, numpy.array
             peaks of interests
 
@@ -505,8 +522,10 @@ def run_HOMER_motif(peaks, out_dir, prefix, ref_genome,
 
         split_symbol: List[str, str]
             how peak location ID is formatted
-                'chr1-12345-23456' - split_symbol=['-','-']
-                'chr1:12345-23456' - split_symbol=[':','-']
+
+            'chr1-12345-23456' - split_symbol=['-','-']
+
+            'chr1:12345-23456' - split_symbol=[':','-']
         
         size: int
             Homer paramter, the size of the region used for motif finding
@@ -566,8 +585,8 @@ def motif_summary(peak_file, homer_dir, motif_index, ref_genome,
     Function to extract related peaks from motifs of interests.
 
 
-    Arguments
-    ---------
+    Parameters
+    ------------
         peak_file: str
             out_dir/prefix.peaks.bed file generated in run_HOMER_motif()
 

@@ -32,7 +32,7 @@ class Moran(object):
     Adapted from https://github.com/pysal/esda
 
     Parameters
-    ----------
+    ------------
 
         n               : int
                           number of observations
@@ -51,7 +51,7 @@ class Moran(object):
                           pseudo-p_values
 
     Attributes
-    ----------
+    ------------
         w            : W
                        original w object
 
@@ -95,8 +95,8 @@ class Moran(object):
         """
         Function to calculate Moran's I of all features
 
-        Arguments
-        ---------
+        Parameters
+        ------------
             X: n x p array
                log-transformed feature matrix
 

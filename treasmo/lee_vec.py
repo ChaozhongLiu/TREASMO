@@ -38,8 +38,8 @@ class Spatial_Pearson(BaseEstimator):
         """
         Initialize a spatial pearson correlation estimator
 
-        Arguments
-        ---------
+        Parameters
+        ------------
             connectivity:   scipy.sparse matrix object
                             the connectivity structure describing the relationships
                             between observed units. Will be row-standardized. 
@@ -49,7 +49,7 @@ class Spatial_Pearson(BaseEstimator):
                             if < 1, no permutational inference will be conducted. 
 
         Attributes
-        ----------
+        ------------
             association_: numpy.ndarray (p,)
                           array containg the estimated Lee spatial pearson correlation
                           coefficients for all gene-peak pairs
@@ -81,8 +81,8 @@ class Spatial_Pearson(BaseEstimator):
         """
         bivariate spatial pearson's R based on Eq. 18 of :cite:`Lee2001`.
 
-        Arguments
-        ---------
+        Parameters
+        ------------
             X: numpy.ndarray [n x p]
                 array containing continuous data
             Y: numpy.ndarray [n x p]
@@ -100,11 +100,11 @@ class Spatial_Pearson(BaseEstimator):
 
 
         Returns
-        -------
+        ------------
             the fitted estimator.
 
         Notes
-        -----
+        ------------
             Technical details and derivations can be found in :cite:`Lee2001`.
 
         """
@@ -169,8 +169,7 @@ class Spatial_Pearson(BaseEstimator):
 
 
 class Spatial_Pearson_Local(BaseEstimator):
-    """
-    Local Spatial Pearson Correlation Statistic;
+    """    
     Single-cell gene-peak correlation strength index.
 
     Adapted and vectorized from esda library
@@ -181,8 +180,8 @@ class Spatial_Pearson_Local(BaseEstimator):
         """
         Initialize a spatial local pearson estimator
 
-        Arguments
-        ---------
+        Parameters
+        ------------
             connectivity:   scipy.sparse matrix object
                             the connectivity structure describing the relationships
                             between observed units. Will be row-standardized. 
@@ -193,7 +192,7 @@ class Spatial_Pearson_Local(BaseEstimator):
 
 
         Attributes
-        ----------
+        ------------
             associations_: numpy.ndarray (n_samples,)
                           array containg the estimated Lee spatial pearson correlation
                           coefficients, where element [0,1] is the spatial correlation
@@ -222,8 +221,8 @@ class Spatial_Pearson_Local(BaseEstimator):
         """
         bivariate local pearson's R based on Eq. 22 in Lee (2001)
 
-        Arguments
-        ---------
+        Parameters
+        ------------
             X: numpy.ndarray [n x p]
                 array containing continuous data
             Y: numpy.ndarray [n x p]

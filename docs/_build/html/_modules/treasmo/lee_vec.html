@@ -247,12 +247,12 @@ document.write(`
 <span class="kn">import</span> <span class="nn">scipy.stats</span>
 <span class="kn">import</span> <span class="nn">psutil</span>
 
-<div class="viewcode-block" id="get_memory"><a class="viewcode-back" href="../../api.html#treasmo.lee_vec.get_memory">[docs]</a><span class="k">def</span> <span class="nf">get_memory</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">get_memory</span><span class="p">():</span>
     <span class="c1"># Get the virtual memory usage details</span>
     <span class="n">memory</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">virtual_memory</span><span class="p">()</span>
     <span class="c1"># Calculate the free memory in MB</span>
     <span class="n">free_memory_mb</span> <span class="o">=</span> <span class="p">(</span><span class="n">memory</span><span class="o">.</span><span class="n">available</span> <span class="o">/</span> <span class="mf">1024.0</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1024.0</span>
-    <span class="k">return</span> <span class="n">free_memory_mb</span></div>
+    <span class="k">return</span> <span class="n">free_memory_mb</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">def get_memory():</span>
 <span class="sd">    with open(&#39;/proc/meminfo&#39;, &#39;r&#39;) as mem:</span>
@@ -277,8 +277,8 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize a spatial pearson correlation estimator</span>
 
-<span class="sd">        Arguments</span>
-<span class="sd">        ---------</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ------------</span>
 <span class="sd">            connectivity:   scipy.sparse matrix object</span>
 <span class="sd">                            the connectivity structure describing the relationships</span>
 <span class="sd">                            between observed units. Will be row-standardized. </span>
@@ -288,7 +288,7 @@ document.write(`
 <span class="sd">                            if &lt; 1, no permutational inference will be conducted. </span>
 
 <span class="sd">        Attributes</span>
-<span class="sd">        ----------</span>
+<span class="sd">        ------------</span>
 <span class="sd">            association_: numpy.ndarray (p,)</span>
 <span class="sd">                          array containg the estimated Lee spatial pearson correlation</span>
 <span class="sd">                          coefficients for all gene-peak pairs</span>
@@ -320,8 +320,8 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        bivariate spatial pearson&#39;s R based on Eq. 18 of :cite:`Lee2001`.</span>
 
-<span class="sd">        Arguments</span>
-<span class="sd">        ---------</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ------------</span>
 <span class="sd">            X: numpy.ndarray [n x p]</span>
 <span class="sd">                array containing continuous data</span>
 <span class="sd">            Y: numpy.ndarray [n x p]</span>
@@ -339,11 +339,11 @@ document.write(`
 
 
 <span class="sd">        Returns</span>
-<span class="sd">        -------</span>
+<span class="sd">        ------------</span>
 <span class="sd">            the fitted estimator.</span>
 
 <span class="sd">        Notes</span>
-<span class="sd">        -----</span>
+<span class="sd">        ------------</span>
 <span class="sd">            Technical details and derivations can be found in :cite:`Lee2001`.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -408,8 +408,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="Spatial_Pearson_Local"><a class="viewcode-back" href="../../api.html#treasmo.lee_vec.Spatial_Pearson_Local">[docs]</a><span class="k">class</span> <span class="nc">Spatial_Pearson_Local</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Local Spatial Pearson Correlation Statistic;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;    </span>
 <span class="sd">    Single-cell gene-peak correlation strength index.</span>
 
 <span class="sd">    Adapted and vectorized from esda library</span>
@@ -420,8 +419,8 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize a spatial local pearson estimator</span>
 
-<span class="sd">        Arguments</span>
-<span class="sd">        ---------</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ------------</span>
 <span class="sd">            connectivity:   scipy.sparse matrix object</span>
 <span class="sd">                            the connectivity structure describing the relationships</span>
 <span class="sd">                            between observed units. Will be row-standardized. </span>
@@ -432,7 +431,7 @@ document.write(`
 
 
 <span class="sd">        Attributes</span>
-<span class="sd">        ----------</span>
+<span class="sd">        ------------</span>
 <span class="sd">            associations_: numpy.ndarray (n_samples,)</span>
 <span class="sd">                          array containg the estimated Lee spatial pearson correlation</span>
 <span class="sd">                          coefficients, where element [0,1] is the spatial correlation</span>
@@ -461,8 +460,8 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        bivariate local pearson&#39;s R based on Eq. 22 in Lee (2001)</span>
 
-<span class="sd">        Arguments</span>
-<span class="sd">        ---------</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ------------</span>
 <span class="sd">            X: numpy.ndarray [n x p]</span>
 <span class="sd">                array containing continuous data</span>
 <span class="sd">            Y: numpy.ndarray [n x p]</span>

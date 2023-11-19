@@ -279,8 +279,8 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to visualize the local L matrix by heatmap, and cluster features</span>
 
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ------------</span>
 <span class="sd">        mudata: MuData</span>
 <span class="sd">            single-cell multi-omics data saved as MuData object</span>
 
@@ -333,7 +333,8 @@ document.write(`
 
 <span class="k">def</span> <span class="nf">_Heatmap_cluster</span><span class="p">(</span><span class="n">anndat_L</span><span class="p">,</span> <span class="n">groupby</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Helper function to plot heatmap with clustering</span>
+<span class="sd">    Helper function to plot heatmap with clustering.</span>
+<span class="sd">    No need to be called from user end.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># Determine features order in heatmap</span>
@@ -375,7 +376,8 @@ document.write(`
 <span class="k">def</span> <span class="nf">_Heatmap_nocluster</span><span class="p">(</span><span class="n">anndat_L</span><span class="p">,</span> <span class="n">groupby</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Helper function to plot heatmap without clustering</span>
+<span class="sd">    Helper function to plot heatmap without clustering.</span>
+<span class="sd">    No need to be called from user end.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="n">save</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -408,10 +410,11 @@ document.write(`
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to visualize the gene-peak pair correlation in user wanted embedding. e.g., UMAP.</span>
+
 <span class="sd">    It returns 3 plots: gene expression, peaks accessibility, and gene-peak correlation strength</span>
 
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ------------</span>
 <span class="sd">        mudata: MuData</span>
 <span class="sd">            single-cell multi-omics data saved as MuData object</span>
 
@@ -523,8 +526,8 @@ document.write(`
 
 <span class="sd">    .. note:: To visualize the results, need to run df.PathDynamics() first.</span>
 
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ------------</span>
 <span class="sd">        mudata: MuData</span>
 <span class="sd">            single-cell multi-omics data saved as MuData object</span>
 <span class="sd">            It must have correlation strength index calculated.</span>
@@ -558,6 +561,7 @@ document.write(`
 
 <span class="sd">        curve_colors: List, numpy.array</span>
 <span class="sd">            curve colors for each of the gene-peak pair correlation;</span>
+
 <span class="sd">            if not specified, defaul color palette will be applied.</span>
 
 <span class="sd">        dot_size: int, float</span>
@@ -568,7 +572,9 @@ document.write(`
 
 <span class="sd">        ident_colors: List, numpy.array</span>
 <span class="sd">            colors of each cluster to be plotted in the proportion bar;</span>
+
 <span class="sd">            If not specified, function will look for uns[IDENT_colors] first;</span>
+
 <span class="sd">            If not found, default color palette will be applied.</span>
 
 <span class="sd">        show_legend: bool</span>
@@ -692,7 +698,7 @@ document.write(`
                       <span class="n">ident_colors</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Helper function to plot dynamic curves with proportion changes;</span>
+<span class="sd">    Helper function to plot dynamic curves with proportion changes.</span>
 <span class="sd">    No need to be called from user end.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
@@ -754,7 +760,7 @@ document.write(`
 <span class="k">def</span> <span class="nf">_curve_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">dot_size</span><span class="p">,</span> <span class="n">linewidth</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Helper function to plot dynamic curves;</span>
+<span class="sd">    Helper function to plot dynamic curves.</span>
 <span class="sd">    No need to be called from user end.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -815,7 +821,7 @@ document.write(`
 <span class="k">def</span> <span class="nf">_prp_var</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Helper function to plot proportion bar;</span>
+<span class="sd">    Helper function to plot proportion bar.</span>
 <span class="sd">    No need to be called from user end.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -851,10 +857,11 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to plot regulatory element relationships in heatmap by Spearman correlation</span>
 <span class="sd">    </span>
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ------------</span>
 <span class="sd">        mudata: MuData</span>
 <span class="sd">            single-cell multi-omics data saved as MuData object</span>
+
 <span class="sd">            It must have correlation strength index calculated.</span>
 <span class="sd">        </span>
 <span class="sd">        ident: str</span>
@@ -962,11 +969,12 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to plot the gene-peak modules found in the trajectory by treasmo.ds.DynamicModule</span>
 
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ------------</span>
 <span class="sd">        mudata: MuData</span>
 <span class="sd">            single-cell multi-omics data saved as MuData object</span>
-<span class="sd">            Run treasmo.ds.DynamicModule beforehead.</span>
+
+<span class="sd">            Run ``treasmo.ds.DynamicModule`` beforehead.</span>
 <span class="sd">        </span>
 <span class="sd">        somDict: dict</span>
 <span class="sd">            output from treasmo.ds.DynamicModule containing modules found</span>
@@ -996,25 +1004,28 @@ document.write(`
 <span class="sd">            labels for x/y axis</span>
 
 <span class="sd">        curve_colors: List, numpy.array</span>
-<span class="sd">            curve colors for each of the gene-peak pair correlation;</span>
-<span class="sd">            if not specified, defaul color palette will be applied.</span>
+<span class="sd">            Curve colors for each of the gene-peak pair correlation;</span>
+
+<span class="sd">            If not specified, defaul color palette will be applied.</span>
 
 <span class="sd">        dot_size: int, float</span>
-<span class="sd">            dot size in plot</span>
+<span class="sd">            Dot size in plot</span>
 
 <span class="sd">        linewidth: int, float</span>
 <span class="sd">            curve width</span>
 
 <span class="sd">        ident_colors: List, numpy.array</span>
-<span class="sd">            colors of each cluster to be plotted in the proportion bar;</span>
+<span class="sd">            Colors of each cluster to be plotted in the proportion bar;</span>
+
 <span class="sd">            If not specified, function will look for uns[IDENT_colors] first;</span>
+
 <span class="sd">            If not found, default color palette will be applied.</span>
 
 <span class="sd">        show_legend: bool</span>
 <span class="sd">            Show color legend or not</span>
 
 <span class="sd">        save: str</span>
-<span class="sd">            if provided, heatmap will be saved in the file path</span>
+<span class="sd">            If provided, heatmap will be saved in the file path</span>
 
 <span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>

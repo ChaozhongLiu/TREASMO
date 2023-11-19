@@ -41,8 +41,8 @@ def FindAllMarkers(mudata, ident, mods=['rna','atac'], corrct_method='bonferroni
     Function to discover regulatory gene-peak markers in all groups
     Target group correlation strength is compared with all remaining groups by t-test.
 
-    Arguments
-    ---------
+    Parameters
+    ------------
         mudata: MuData
             single-cell multi-omics data saved as MuData object
         
@@ -115,8 +115,8 @@ def FindMarkers(mudata, ident, group_1, group_2, mods=['rna','atac'], corrct_met
     """
     Function to compare regulatory gene-peak pairs between two group by t-test.
 
-    Arguments
-    ---------
+    Parameters
+    ------------
         mudata: MuData
             single-cell multi-omics data saved as MuData object
         
@@ -293,8 +293,8 @@ def MarkerFilter(statDf, min_pct_rna=0.1, min_pct_atac=0.05, mean_diff=1.0, p_cu
     """
     Function to filter markers from statistical test results by sparsity, correlation difference, and p-value
 
-    Arguments
-    ---------
+    Parameters
+    ------------
         statDf: DataFrame
             Differentially regulated pairs statistical test results
         
@@ -318,7 +318,7 @@ def MarkerFilter(statDf, min_pct_rna=0.1, min_pct_atac=0.05, mean_diff=1.0, p_cu
         DataFrame
             Filtered marker list with the same columns as stat_df
 
-        if plot==True, also return volcano plot
+            if plot==True, also return volcano plot
 
     """
     stat_df = statDf.copy()
@@ -359,8 +359,8 @@ def FindPathMarkers(mudata, ident, path, mods=['rna','atac'], corrct_method='bon
     """
     One-to-one comparison of gene-peak correlation among groups in the trajectory path by t-test.
 
-    Arguments
-    ---------
+    Parameters
+    ------------
         mudata: MuData
             single-cell multi-omics data saved as MuData object
         
@@ -440,10 +440,11 @@ def TimeBinData(mudata, ident, path, pseudotime, features,
     """
     Helper function to generate bined data along trajectory.
 
-    Arguments
+    Parameters
     --------------
         mudata: MuData
             single-cell multi-omics data saved as MuData object
+
             It must have correlation strength index calculated.
         
         ident: str
@@ -466,12 +467,14 @@ def TimeBinData(mudata, ident, path, pseudotime, features,
         
         fitted: int, default is None
             if an int, return GaussianProcessRegressor fitted data with ``fitted`` bins.
+
             if None, return only bined raw data
 
     Returns
     ---------
         DataFrame
             bined raw data
+
             Optional: GaussianProcessRegressor fitted data
 
     """
@@ -525,9 +528,9 @@ def TimeBinProportion(mudata, ident, path, pseudotime, bins=100):
     """
     Function to calculate bined cell type proportion along trajectory
 
-    Arguments
+    Parameters
     --------------
-    mudata: MuData
+        mudata: MuData
             single-cell multi-omics data saved as MuData object
         
         ident: str
@@ -584,7 +587,7 @@ def FindPathDynamics(mudata, ident, path, pseudotime, rm_outlier=True,
     """
     Detect highly variable gene-peak pairs along the trajectory by correlation strength range (max-min) and variance
 
-    Arguments
+    Parameters
     --------------
         mudata: MuData
             single-cell multi-omics data saved as MuData object
@@ -652,8 +655,8 @@ def PathDynamics(mudata, gene, peaks, ident, path, pseudotime, bins=100):
     """
     Quantify regulatory dynamics along the trajectory for a single gene and its regulatory elements.
 
-    Arguments
-    ---------
+    Parameters
+    ------------
         mudata: MuData
             single-cell multi-omics data saved as MuData object
         
@@ -737,8 +740,8 @@ def DynamicModule(mudata, ident, path, pseudotime, features=None, bins=100, fitt
     """
     Function to cluster gene-peak modules by Self-Organizing Map along the trajectory
 
-    Arguments
-    ---------
+    Parameters
+    ------------
         mudata: MuData
             single-cell multi-omics data saved as MuData object
         
@@ -756,8 +759,11 @@ def DynamicModule(mudata, ident, path, pseudotime, features=None, bins=100, fitt
         
         fitted: int
             number of bins to divide the trajectory into for GaussianProcessRegressor fitted data
+
             ``bins`` sets bined data for later plotting;
+
             ``fitted`` sets bined data for clustering;
+            
             It is recommended to keep the two the same
     
         num_iteration: int

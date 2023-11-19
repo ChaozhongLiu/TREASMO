@@ -23,7 +23,7 @@ def Morans_I(mudata, mods=['rna','atac'], seed=1, max_RAM=16):
     """ 
     Function to calculate Moran's I for all the features in multiome data
 
-    Arguments
+    Parameters
     --------------
 
         mudata: MuData
@@ -112,7 +112,7 @@ def Global_L(mudata, pairsDf, mods=['rna','atac'], permutations=0, percent=0.1, 
     """ 
     Function to calculate the global L index (mean of correlation strength index) for all the pairs in multiome data
 
-    Arguments
+    Parameters
     --------------
 
         mudata: MuData
@@ -123,15 +123,18 @@ def Global_L(mudata, pairsDf, mods=['rna','atac'], permutations=0, percent=0.1, 
 
         pairsDf: pandas.DataFrame
             gene-peak pair DataFrame containing pairs to be calculated
+
             self-prepared or called from treasmo.tl.peaks_within_distance / TFBS_match
 
         permutations: int
             Number of permutations for significance test.
+
             Default is 0, meaning no significance test
             999 is a good choice for most cases, but it might take a long time (hours) to finish depending on the number of pairs
         
         percent: float
             percentage of cells to shuffle during permutation.
+            
             For most of the time, default 0.1 is already a good choice.
         
         seed: int
@@ -145,8 +148,10 @@ def Global_L(mudata, pairsDf, mods=['rna','atac'], permutations=0, percent=0.1, 
     --------------
         DataFrame
             pairsDf added with extra columns:
-                Global L results
-                QC metrics (feature sparsity)
+
+            Global L results
+
+            QC metrics (feature sparsity)
 
     """
 
@@ -223,7 +228,7 @@ def Local_L(mudata, genes, peaks,
     """ 
     Function to calculate the single-cell gene-peak correlation strength index for all the pairs in multiome data
 
-    Arguments
+    Parameters
     --------------
 
         mudata: MuData
@@ -324,7 +329,7 @@ def Pearsonr(mudata, genes, peaks,
     """
     Function to calculate the Pearson correlation between genes and peaks
 
-    Arguments
+    Parameters
     --------------
 
         mudata: MuData

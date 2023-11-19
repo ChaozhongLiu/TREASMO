@@ -242,7 +242,6 @@ document.write(`
 <span class="kn">import</span> <span class="nn">anndata</span> <span class="k">as</span> <span class="nn">ad</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-<span class="kn">import</span> <span class="nn">treasmo.core</span> <span class="k">as</span> <span class="nn">core</span>
 <span class="kn">from</span> <span class="nn">minisom</span> <span class="kn">import</span> <span class="n">MiniSom</span>
 
 
@@ -281,8 +280,8 @@ document.write(`
 <span class="sd">    Function to discover regulatory gene-peak markers in all groups</span>
 <span class="sd">    Target group correlation strength is compared with all remaining groups by t-test.</span>
 
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ------------</span>
 <span class="sd">        mudata: MuData</span>
 <span class="sd">            single-cell multi-omics data saved as MuData object</span>
 <span class="sd">        </span>
@@ -355,8 +354,8 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to compare regulatory gene-peak pairs between two group by t-test.</span>
 
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ------------</span>
 <span class="sd">        mudata: MuData</span>
 <span class="sd">            single-cell multi-omics data saved as MuData object</span>
 <span class="sd">        </span>
@@ -533,8 +532,8 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to filter markers from statistical test results by sparsity, correlation difference, and p-value</span>
 
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ------------</span>
 <span class="sd">        statDf: DataFrame</span>
 <span class="sd">            Differentially regulated pairs statistical test results</span>
 <span class="sd">        </span>
@@ -558,7 +557,7 @@ document.write(`
 <span class="sd">        DataFrame</span>
 <span class="sd">            Filtered marker list with the same columns as stat_df</span>
 
-<span class="sd">        if plot==True, also return volcano plot</span>
+<span class="sd">            if plot==True, also return volcano plot</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">stat_df</span> <span class="o">=</span> <span class="n">statDf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -599,8 +598,8 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    One-to-one comparison of gene-peak correlation among groups in the trajectory path by t-test.</span>
 
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ------------</span>
 <span class="sd">        mudata: MuData</span>
 <span class="sd">            single-cell multi-omics data saved as MuData object</span>
 <span class="sd">        </span>
@@ -680,10 +679,11 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Helper function to generate bined data along trajectory.</span>
 
-<span class="sd">    Arguments</span>
+<span class="sd">    Parameters</span>
 <span class="sd">    --------------</span>
 <span class="sd">        mudata: MuData</span>
 <span class="sd">            single-cell multi-omics data saved as MuData object</span>
+
 <span class="sd">            It must have correlation strength index calculated.</span>
 <span class="sd">        </span>
 <span class="sd">        ident: str</span>
@@ -706,12 +706,14 @@ document.write(`
 <span class="sd">        </span>
 <span class="sd">        fitted: int, default is None</span>
 <span class="sd">            if an int, return GaussianProcessRegressor fitted data with ``fitted`` bins.</span>
+
 <span class="sd">            if None, return only bined raw data</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    ---------</span>
 <span class="sd">        DataFrame</span>
 <span class="sd">            bined raw data</span>
+
 <span class="sd">            Optional: GaussianProcessRegressor fitted data</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -765,9 +767,9 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to calculate bined cell type proportion along trajectory</span>
 
-<span class="sd">    Arguments</span>
+<span class="sd">    Parameters</span>
 <span class="sd">    --------------</span>
-<span class="sd">    mudata: MuData</span>
+<span class="sd">        mudata: MuData</span>
 <span class="sd">            single-cell multi-omics data saved as MuData object</span>
 <span class="sd">        </span>
 <span class="sd">        ident: str</span>
@@ -824,7 +826,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Detect highly variable gene-peak pairs along the trajectory by correlation strength range (max-min) and variance</span>
 
-<span class="sd">    Arguments</span>
+<span class="sd">    Parameters</span>
 <span class="sd">    --------------</span>
 <span class="sd">        mudata: MuData</span>
 <span class="sd">            single-cell multi-omics data saved as MuData object</span>
@@ -892,8 +894,8 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Quantify regulatory dynamics along the trajectory for a single gene and its regulatory elements.</span>
 
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ------------</span>
 <span class="sd">        mudata: MuData</span>
 <span class="sd">            single-cell multi-omics data saved as MuData object</span>
 <span class="sd">        </span>
@@ -977,8 +979,8 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to cluster gene-peak modules by Self-Organizing Map along the trajectory</span>
 
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ------------</span>
 <span class="sd">        mudata: MuData</span>
 <span class="sd">            single-cell multi-omics data saved as MuData object</span>
 <span class="sd">        </span>
@@ -996,8 +998,11 @@ document.write(`
 <span class="sd">        </span>
 <span class="sd">        fitted: int</span>
 <span class="sd">            number of bins to divide the trajectory into for GaussianProcessRegressor fitted data</span>
+
 <span class="sd">            ``bins`` sets bined data for later plotting;</span>
+
 <span class="sd">            ``fitted`` sets bined data for clustering;</span>
+<span class="sd">            </span>
 <span class="sd">            It is recommended to keep the two the same</span>
 <span class="sd">    </span>
 <span class="sd">        num_iteration: int</span>

@@ -262,7 +262,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Function to calculate Moran&#39;s I for all the features in multiome data</span>
 
-<span class="sd">    Arguments</span>
+<span class="sd">    Parameters</span>
 <span class="sd">    --------------</span>
 
 <span class="sd">        mudata: MuData</span>
@@ -351,7 +351,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Function to calculate the global L index (mean of correlation strength index) for all the pairs in multiome data</span>
 
-<span class="sd">    Arguments</span>
+<span class="sd">    Parameters</span>
 <span class="sd">    --------------</span>
 
 <span class="sd">        mudata: MuData</span>
@@ -362,15 +362,18 @@ document.write(`
 
 <span class="sd">        pairsDf: pandas.DataFrame</span>
 <span class="sd">            gene-peak pair DataFrame containing pairs to be calculated</span>
+
 <span class="sd">            self-prepared or called from treasmo.tl.peaks_within_distance / TFBS_match</span>
 
 <span class="sd">        permutations: int</span>
 <span class="sd">            Number of permutations for significance test.</span>
+
 <span class="sd">            Default is 0, meaning no significance test</span>
 <span class="sd">            999 is a good choice for most cases, but it might take a long time (hours) to finish depending on the number of pairs</span>
 <span class="sd">        </span>
 <span class="sd">        percent: float</span>
 <span class="sd">            percentage of cells to shuffle during permutation.</span>
+<span class="sd">            </span>
 <span class="sd">            For most of the time, default 0.1 is already a good choice.</span>
 <span class="sd">        </span>
 <span class="sd">        seed: int</span>
@@ -384,8 +387,10 @@ document.write(`
 <span class="sd">    --------------</span>
 <span class="sd">        DataFrame</span>
 <span class="sd">            pairsDf added with extra columns:</span>
-<span class="sd">                Global L results</span>
-<span class="sd">                QC metrics (feature sparsity)</span>
+
+<span class="sd">            Global L results</span>
+
+<span class="sd">            QC metrics (feature sparsity)</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -462,7 +467,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
 <span class="sd">    Function to calculate the single-cell gene-peak correlation strength index for all the pairs in multiome data</span>
 
-<span class="sd">    Arguments</span>
+<span class="sd">    Parameters</span>
 <span class="sd">    --------------</span>
 
 <span class="sd">        mudata: MuData</span>
@@ -563,7 +568,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to calculate the Pearson correlation between genes and peaks</span>
 
-<span class="sd">    Arguments</span>
+<span class="sd">    Parameters</span>
 <span class="sd">    --------------</span>
 
 <span class="sd">        mudata: MuData</span>

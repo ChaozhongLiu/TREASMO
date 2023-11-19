@@ -245,12 +245,12 @@ document.write(`
 
 <span class="n">PERMUTATIONS</span> <span class="o">=</span> <span class="mi">0</span>
 
-<div class="viewcode-block" id="get_memory"><a class="viewcode-back" href="../../api.html#treasmo.moran_vec.get_memory">[docs]</a><span class="k">def</span> <span class="nf">get_memory</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">get_memory</span><span class="p">():</span>
     <span class="c1"># Get the virtual memory usage details</span>
     <span class="n">memory</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">virtual_memory</span><span class="p">()</span>
     <span class="c1"># Calculate the free memory in MB</span>
     <span class="n">free_memory_mb</span> <span class="o">=</span> <span class="p">(</span><span class="n">memory</span><span class="o">.</span><span class="n">available</span> <span class="o">/</span> <span class="mf">1024.0</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1024.0</span>
-    <span class="k">return</span> <span class="n">free_memory_mb</span></div>
+    <span class="k">return</span> <span class="n">free_memory_mb</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">def get_memory():</span>
@@ -271,7 +271,7 @@ document.write(`
 <span class="sd">    Adapted from https://github.com/pysal/esda</span>
 
 <span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
+<span class="sd">    ------------</span>
 
 <span class="sd">        n               : int</span>
 <span class="sd">                          number of observations</span>
@@ -290,7 +290,7 @@ document.write(`
 <span class="sd">                          pseudo-p_values</span>
 
 <span class="sd">    Attributes</span>
-<span class="sd">    ----------</span>
+<span class="sd">    ------------</span>
 <span class="sd">        w            : W</span>
 <span class="sd">                       original w object</span>
 
@@ -334,8 +334,8 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Function to calculate Moran&#39;s I of all features</span>
 
-<span class="sd">        Arguments</span>
-<span class="sd">        ---------</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ------------</span>
 <span class="sd">            X: n x p array</span>
 <span class="sd">               log-transformed feature matrix</span>
 
