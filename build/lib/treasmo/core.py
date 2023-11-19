@@ -19,33 +19,30 @@ __email__ = "czliubioinfo@gmail.com"
 
 
 
-######
-# add self-connection or not
-# remove dropout: Default False
-######
-
-
-
 def Morans_I(mudata, mods=['rna','atac'], seed=1, max_RAM=16):
     """ 
-    Function to calculate Moran's I for all the features in anndat_multiome
+    Function to calculate Moran's I for all the features in multiome data
 
-    Arguments
+    Parameters
     --------------
 
-        mudata: single-cell multi-omics data saved as MuData object
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
 
-        mods: scRNA-seq and scATAC-seq modality name in MuData object
+        mods: List[str, str]
+            scRNA-seq and scATAC-seq modality name in MuData object
 
-        seed: random seed to make the results reproducible
+        seed: int
+            random seed to make the results reproducible
 
-        max_RAM: maximum limitation of memory (Gb)
+        max_RAM: int
+            maximum limitation of memory usage (Gb)
 
 
     Returns
     --------------
-        mudata added with
-            var['Morans.I']
+        MuData
+            added with var['Morans.I']
 
     """
 
@@ -113,35 +110,48 @@ def _prepare_mtx(anndat, features):
 
 def Global_L(mudata, pairsDf, mods=['rna','atac'], permutations=0, percent=0.1, seed=1, max_RAM=16):
     """ 
-    Function to calculate the global L index for all the pairs in anndat_multiome
+    Function to calculate the global L index (mean of correlation strength index) for all the pairs in multiome data
 
-    Arguments
+    Parameters
     --------------
 
-        mudata: single-cell multi-omics data saved as MuData object
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
 
-        mods: scRNA-seq and scATAC-seq modality name in MuData object
+        mods: List[str, str]
+            scRNA-seq and scATAC-seq modality name in MuData object
 
-        pairsDf: gene-peak pair DataFrame containing pairs to be calculated
-                 self-prepared or call treasmo.tl.peaks_within_distance / TFBS_match
+        pairsDf: pandas.DataFrame
+            gene-peak pair DataFrame containing pairs to be calculated
 
-        permutations: number of permutations for significance test.
-                      Default is 0, meaning no significance test
-                      999 is a good choice for the test, but it might take a long time (hours) to finish depending on the number of pairs
+            self-prepared or called from treasmo.tl.peaks_within_distance / TFBS_match
+
+        permutations: int
+            Number of permutations for significance test.
+
+            Default is 0, meaning no significance test
+            999 is a good choice for most cases, but it might take a long time (hours) to finish depending on the number of pairs
         
-        percent: percentage of cells to shuffle during permutation.
-                 For most of the time, default 0.1 is already a good choice.
+        percent: float
+            percentage of cells to shuffle during permutation.
+            
+            For most of the time, default 0.1 is already a good choice.
         
-        seed: random seed to make the results reproducible
+        seed: int
+            random seed to make the results reproducible
 
-        max_RAM: maximum limitation of memory (Gb)
+        max_RAM: int
+            maximum limitation of memory usage(Gb)
 
 
     Returns
     --------------
-        pairsDf added with extra columns:
+        DataFrame
+            pairsDf added with extra columns:
+
             Global L results
-            QC metrics (sparsity)
+
+            QC metrics (feature sparsity)
 
     """
 
@@ -216,28 +226,34 @@ def Local_L(mudata, genes, peaks,
             rm_dropout=False,
             seed=1, max_RAM=16):
     """ 
-    Function to calculate the local L index for all the pairs in anndat_multiome
+    Function to calculate the single-cell gene-peak correlation strength index for all the pairs in multiome data
 
-    Arguments
+    Parameters
     --------------
 
-        mudata: single-cell multi-omics data saved as MuData object
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
 
-        mods: scRNA-seq and scATAC-seq modality name in MuData object
+        mods: List[str, str]
+            scRNA-seq and scATAC-seq modality name in MuData object
 
-        genes, peaks: one-to-one lists containing gene and peak names
+        genes, peaks: List, numpy.array
+            one-to-one lists containing gene and peak names
 
-        rm_dropout: make local L index to be 0 if feature value is 0 (dropout)
+        rm_dropout: bool
+            make correlation strength index to be 0 if feature value is 0 (dropout)
 
-        seed: random seed to make the results reproducible
+        seed: int
+            random seed to make the results reproducible
 
-        max_RAM: maximum limitation of memory (Gb)
+        max_RAM: int
+            maximum limitation of memory usage (Gb)
 
 
     Returns
     --------------
-        mudata added with
-            Local L matrix and gene-peak pair names
+        MuData
+            added with Local L matrix and gene-peak pair names in ``mudata.uns``
 
     """
 
@@ -307,8 +323,37 @@ def _dropout_filter(mudata, GP_names, mods):
 #=========================================================================================
 
 def Pearsonr(mudata, genes, peaks,
-                   mods=['rna','atac'],
-                   p_value=False, seed=1):
+             mods=['rna','atac'],
+             p_value=False, seed=1):
+    
+    """
+    Function to calculate the Pearson correlation between genes and peaks
+
+    Parameters
+    --------------
+
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
+
+        mods: List[str, str]
+            scRNA-seq and scATAC-seq modality name in MuData object
+
+        genes, peaks: List, numpy.array
+            one-to-one lists containing gene and peak names
+
+        p_value: bool
+            perform significance testing or not
+
+        seed: int
+            random seed to make the results reproducible
+
+
+    Returns
+    --------------
+        DataFrame
+            containing Pearson correlation r, p-value and FDR for all gene-peak pairs
+
+    """
     random.seed(seed)
     np.random.seed(seed)
 

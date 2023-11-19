@@ -6,8 +6,15 @@ from sklearn import utils
 import random
 from sys import getsizeof
 import scipy.stats
+import psutil
 
-
+def get_memory():
+    # Get the virtual memory usage details
+    memory = psutil.virtual_memory()
+    # Calculate the free memory in MB
+    free_memory_mb = (memory.available / 1024.0) / 1024.0
+    return free_memory_mb
+'''
 def get_memory():
     with open('/proc/meminfo', 'r') as mem:
         free_memory = 0
@@ -16,17 +23,23 @@ def get_memory():
             if str(sline[0]) in ('MemFree:', 'Buffers:', 'Cached:'):
                 free_memory += int(sline[1])
     return free_memory / 1024
-
+'''
 
 class Spatial_Pearson(BaseEstimator):
-    """Global Spatial Pearson Statistic"""
+    """
+    Global Spatial Pearson Correlation Statistic; 
+    Mean of single-cell gene-peak correlation strength index.
+
+    Adapted and vectorized from https://github.com/pysal/esda
+
+    """
 
     def __init__(self, connectivity=None, permutations=999):
         """
-        Initialize a spatial pearson estimator
+        Initialize a spatial pearson correlation estimator
 
-        Arguments
-        ---------
+        Parameters
+        ------------
             connectivity:   scipy.sparse matrix object
                             the connectivity structure describing the relationships
                             between observed units. Will be row-standardized. 
@@ -36,7 +49,7 @@ class Spatial_Pearson(BaseEstimator):
                             if < 1, no permutational inference will be conducted. 
 
         Attributes
-        ----------
+        ------------
             association_: numpy.ndarray (p,)
                           array containg the estimated Lee spatial pearson correlation
                           coefficients for all gene-peak pairs
@@ -68,27 +81,30 @@ class Spatial_Pearson(BaseEstimator):
         """
         bivariate spatial pearson's R based on Eq. 18 of :cite:`Lee2001`.
 
-        Arguments
-        ---------
-            X       :   numpy.ndarray [n x p]
-                        array containing continuous data
-            Y       :   numpy.ndarray [n x p]
-                        array containing continuous data
+        Parameters
+        ------------
+            X: numpy.ndarray [n x p]
+                array containing continuous data
+            Y: numpy.ndarray [n x p]
+                array containing continuous data
 
-            percent: percentage of cells to shuffle during permutation.
-                     For most of the time, default 0.1 is alread a good choice.
+            percent: float
+                percentage of cells to shuffle during permutation.
+                For most of the time, default 0.1 is alread a good choice.
             
-            seed: random seed to make the results reproducible
+            seed: int
+                random seed to make the results reproducible
 
-            max_RAM: maximum limitation of memory (Gb)
+            max_RAM: int, float
+                maximum limitation of memory (Gb)
 
 
         Returns
-        -------
+        ------------
             the fitted estimator.
 
         Notes
-        -----
+        ------------
             Technical details and derivations can be found in :cite:`Lee2001`.
 
         """
@@ -153,14 +169,19 @@ class Spatial_Pearson(BaseEstimator):
 
 
 class Spatial_Pearson_Local(BaseEstimator):
-    """Local Spatial Pearson Statistic"""
+    """    
+    Single-cell gene-peak correlation strength index.
+
+    Adapted and vectorized from esda library
+
+    """
 
     def __init__(self, connectivity=None, permutations=999):
         """
         Initialize a spatial local pearson estimator
 
-        Arguments
-        ---------
+        Parameters
+        ------------
             connectivity:   scipy.sparse matrix object
                             the connectivity structure describing the relationships
                             between observed units. Will be row-standardized. 
@@ -171,7 +192,7 @@ class Spatial_Pearson_Local(BaseEstimator):
 
 
         Attributes
-        ----------
+        ------------
             associations_: numpy.ndarray (n_samples,)
                           array containg the estimated Lee spatial pearson correlation
                           coefficients, where element [0,1] is the spatial correlation
@@ -187,6 +208,7 @@ class Spatial_Pearson_Local(BaseEstimator):
         Notes
         -----
         Technical details and derivations can be found in :cite:`Lee2001`.
+
         """
         self.connectivity = connectivity
         self.permutations = permutations
@@ -199,20 +221,23 @@ class Spatial_Pearson_Local(BaseEstimator):
         """
         bivariate local pearson's R based on Eq. 22 in Lee (2001)
 
-        Arguments
-        ---------
-            X       :   numpy.ndarray [n x p]
-                        array containing continuous data
-            Y       :   numpy.ndarray [n x p]
-                        array containing continuous data
+        Parameters
+        ------------
+            X: numpy.ndarray [n x p]
+                array containing continuous data
+            Y: numpy.ndarray [n x p]
+                array containing continuous data
             
-            seed: random seed to make the results reproducible
+            seed: int
+                random seed to make the results reproducible
 
-            max_RAM: maximum limitation of memory (Gb)
+            max_RAM: int, float
+                maximum limitation of memory (Gb)
 
         Returns
         -------
             the fitted estimator.
+
         """
         random.seed(seed)
         numpy.random.seed(seed)

@@ -40,25 +40,25 @@ def LocalCor_Heatmap(mudata, pairs, groupby, cluster=True, save=None, **kwds):
     """
     Function to visualize the local L matrix by heatmap, and cluster features
 
-    Arguments
-    ---------
-        mudata: single-cell multi-omics data saved as MuData object
+    Parameters
+    ------------
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
 
-        pairs: gene-peak pair lists to visualize
+        pairs: List, numpy.array
+            List of gene-peak pair names. Can be selected from ``muData.uns['Local_L_names']``
 
-        cluster: cluster features or not
+        cluster: bool
+            cluster features or not
 
-        groupby: if provided, cells / pseudo-bulks will be grouped by the label name
+        groupby: str
+            group cells by the label saved in ``mudata.obs``
 
-        save: if provided, heatmap will be saved in the file path
+        save: str, default is None
+            if provided, heatmap will be saved in the file path provided
 
-        **kwds: other arguments for sc.pl.heatmap()
-
-
-    Returns
-    ---------
-        Local L index heatmap with features clustered or not
-
+        **kwds
+            other arguments for sc.pl.heatmap()
 
     """
 
@@ -93,6 +93,10 @@ def LocalCor_Heatmap(mudata, pairs, groupby, cluster=True, save=None, **kwds):
 
 
 def _Heatmap_cluster(anndat_L, groupby, save=None, **kwds):
+    """
+    Helper function to plot heatmap with clustering.
+    No need to be called from user end.
+    """
 
     # Determine features order in heatmap
     model = AgglomerativeClustering(n_clusters=15, affinity='euclidean', 
@@ -132,6 +136,11 @@ def _Heatmap_cluster(anndat_L, groupby, save=None, **kwds):
 
 def _Heatmap_nocluster(anndat_L, groupby, save=None, **kwds):
 
+    """
+    Helper function to plot heatmap without clustering.
+    No need to be called from user end.
+    """
+
     if save is None:
         sc.pl.heatmap(anndat_L, anndat_L.var_names,
                       groupby=groupby, **kwds)
@@ -161,32 +170,44 @@ def visualize_marker(mudata, gene, peak, mods=['rna','atac'],
                      figsize=None, save=None, **kwds):
 
     """
-    Function to visualize the gene-peak pair correlation in UMAP
+    Function to visualize the gene-peak pair correlation in user wanted embedding. e.g., UMAP.
 
-    Arguments
-    ---------
-        mudata: single-cell multi-omics data saved as MuData object
+    It returns 3 plots: gene expression, peaks accessibility, and gene-peak correlation strength
 
-        gene: gene name
+    Parameters
+    ------------
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
 
-        peak: peak name
+        gene: str
+            gene name
 
-        mods: scRNA-seq and scATAC-seq modality name in MuData object
+        peak: str
+            peak name
 
-        cmaps: Color map to use for continous variables. Could be either a single color_map or a list
+        mods: List[str, str]
+            scRNA-seq and scATAC-seq modality name in MuData object
 
-        basis: the embeddings to plot. Could be either a single embedding space or a list for each of the feature
+        cmaps: str, List
+            Color map to use for continous variables. Could be either a single color_map or a list
 
-        vmins: min value to color. Could be either a single value or a list for gene, peak, and correlation
+        basis: str, List
+            the embeddings to plot. Could be either a single embedding space or a list for each of the feature
 
-        vmaxs: max value to color. Same as vmins
+        vmins: float, List
+            min value to color. Could be either a single value or a list for gene, peak, and correlation
 
-        figsize: figure size
+        vmaxs: float, List
+            max value to color. Same as vmins
 
-        save: str. if provided, heatmap will be saved in the file path
+        figsize: Tuple(int, int)
+            figure size
 
-        **kwds: other arguments for sc.pl.embedding
+        save: str
+            if provided, heatmap will be saved in the file path provided
 
+        **kwds
+            other arguments for sc.pl.embedding
 
     Returns
     ---------
@@ -264,44 +285,64 @@ def PathDynamics(mudata, ident, path, gene, peaks=None,
     """
     Function to visualize the gene-peak pair correlation changes along pseudotime + cell type proportion visualization
 
-    Arguments
-    ---------
-        mudata: single-cell multi-omics data saved as MuData object
+    .. note:: To visualize the results, need to run df.PathDynamics() first.
 
-        ident: ident label in mudata.obs columns to distinguish clusters listed in path
+    Parameters
+    ------------
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
+            It must have correlation strength index calculated.
+        
+        ident: str
+            column name in ``mudata.obs`` containing trajectory group labels
 
-        path: list of clusters ordered by their sequence on the trajectory. A path here should have no branch.
+        path: List
+            list of clusters ordered by their sequence on the trajectory. A path here should have no branch.
 
-        gene: gene name
+        gene: str
+            gene name
 
-        peaks: list of peak names to be paired with the gene
+        peaks: List, numpy.array
+            list of peak names to be paired with the gene
 
-        *To visualize the results, need to run df.PathDynamics() first*
+        xlim: Tuple[float, float]
+            (min, max), the pseudotime range
 
-        xlim: (min, max) the pseudotime range limit
+        ylim: Tuple[float, float]
+            (min, max), the correlation range limit, useful to remove outliers
+        
+        title: str
+            Plot title
 
-        ylim: (min, max) the correlation range limit, useful to remove outliers
+        (title/ticks/label)_fontsize: int
+            fontsize of plot title, ticks and label
 
-        (title/ticks/label)_fontsize: fontsize of different element
+        (x/y)_label: str
+            labels for x/y axis
 
-        (x/y)_label: labels for x/y axis
+        curve_colors: List, numpy.array
+            curve colors for each of the gene-peak pair correlation;
 
-        curve_colors: curve colors for each of the gene-peak pair correlation; if not specified, defaul color palette will be applied.
+            if not specified, defaul color palette will be applied.
 
-        dot_size: dot size in plot
+        dot_size: int, float
+            dot size in plot
 
-        linewidth: curve width
+        linewidth: int, float
+            curve width
 
-        ident_colors: colors of each cluster to be plotted in the proportion bar. If not specified, function will look for uns[IDENT_colors] first. If not found, default color palette will be applied.
+        ident_colors: List, numpy.array
+            colors of each cluster to be plotted in the proportion bar;
 
-        show_legend: Show color legend or not
+            If not specified, function will look for uns[IDENT_colors] first;
 
-        save: str. if provided, heatmap will be saved in the file path
+            If not found, default color palette will be applied.
 
+        show_legend: bool
+            Show color legend or not
 
-    Returns
-    ---------
-        Embedding colored by the gene, peak, and the correlation between gene and peak
+        save: str
+            if provided, heatmap will be saved in the file path
 
 
     """
@@ -416,6 +457,11 @@ def _ComplexCurvePlot(curveDf, prpDf, f1_ax1, f1_ax2, xlim=None, ylim=None,
                       x_label='Pseudotime', y_label='Correlation Strength', label_fontsize=12,
                       curve_colors=None, dot_size=5, linewidth=3,
                       ident_colors=None):
+
+    """
+    Helper function to plot dynamic curves with proportion changes.
+    No need to be called from user end.
+    """
     
     # Prepare some arguments
     if isinstance(curveDf, dict):
@@ -474,6 +520,11 @@ def _ComplexCurvePlot(curveDf, prpDf, f1_ax1, f1_ax2, xlim=None, ylim=None,
 
 def _curve_plot(data, feature, colors, dot_size, linewidth, xlim=None, ylim=None, ax=None):
 
+    """
+    Helper function to plot dynamic curves.
+    No need to be called from user end.
+    """
+
     if ax is None:
         ax = plt.gca()
 
@@ -530,6 +581,11 @@ def _curve_plot(data, feature, colors, dot_size, linewidth, xlim=None, ylim=None
 
 def _prp_var(data, path, colors, xlim=None, ax=None):
 
+    """
+    Helper function to plot proportion bar.
+    No need to be called from user end.
+    """
+
     if ax is None:
         ax = plt.gca()
 
@@ -558,6 +614,43 @@ def _prp_var(data, path, colors, xlim=None, ax=None):
 
 def DynamicSumMtx(mudata, ident, path, gene, peaks=None, 
                   feature_colors=None, show_legend=True, save=None, **kwds):
+
+    """
+    Function to plot regulatory element relationships in heatmap by Spearman correlation
+    
+    Parameters
+    ------------
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
+
+            It must have correlation strength index calculated.
+        
+        ident: str
+            column name in ``mudata.obs`` containing trajectory group labels
+
+        path: List
+            list of clusters ordered by their sequence on the trajectory. A path here should have no branch.
+
+        gene: str
+            gene name
+        
+        peaks: List, numpy.array
+            list of peak names to be paired with the gene
+        
+        feature_colors: List, numpy.array
+            list of colors for all the gene-peak pairs
+        
+        show_legend: bool
+            whether or not to show figure legend
+        
+        save: str
+            if provided, heatmap will be saved in the file path provided
+
+        **kwds
+            other arguments for sc.pl.embedding
+    
+
+    """
 
     path_name = '_'.join(path)
 
@@ -633,6 +726,70 @@ def DynamicModule(mudata, somDict, prpDfin, xlim=None, ylim=None,
                   x_label='Pseudotime', y_label='Correlation Strength', label_fontsize=12,
                   curve_colors=None, dot_size=5, linewidth=3,
                   ident_colors=None, show_legend=True, save=None):
+
+    """
+    Function to plot the gene-peak modules found in the trajectory by treasmo.ds.DynamicModule
+
+    Parameters
+    ------------
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
+
+            Run ``treasmo.ds.DynamicModule`` beforehead.
+        
+        somDict: dict
+            output from treasmo.ds.DynamicModule containing modules found
+        
+        prpDfin: DataFrame
+            output from treasmo.ds.TimeBinProportion containing prpportion changes result
+        
+        ident: str
+            column name in ``mudata.obs`` containing trajectory group labels
+
+        path: List
+            list of clusters ordered by their sequence on the trajectory. A path here should have no branch.
+
+        xlim: Tuple[float, float]
+            (min, max), the pseudotime range
+
+        ylim: Tuple[float, float]
+            (min, max), the correlation range limit, useful to remove outliers
+        
+        title: str
+            Plot title
+
+        (title/ticks/label)_fontsize: int
+            fontsize of plot title, ticks and label
+
+        (x/y)_label: str
+            labels for x/y axis
+
+        curve_colors: List, numpy.array
+            Curve colors for each of the gene-peak pair correlation;
+
+            If not specified, defaul color palette will be applied.
+
+        dot_size: int, float
+            Dot size in plot
+
+        linewidth: int, float
+            curve width
+
+        ident_colors: List, numpy.array
+            Colors of each cluster to be plotted in the proportion bar;
+
+            If not specified, function will look for uns[IDENT_colors] first;
+
+            If not found, default color palette will be applied.
+
+        show_legend: bool
+            Show color legend or not
+
+        save: str
+            If provided, heatmap will be saved in the file path
+
+    
+    """
     
     # Some variables
     modules = list(somDict.keys())

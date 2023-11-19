@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="treasmo",
-    version="1.1.0",
+    version="1.1.1",
     author="Chaozhong Liu",
     author_email="czliubioinfo@gmail.com",
     description="Transcription regulation analysis toolkit for single-cell multi-omics data",

@@ -2,10 +2,18 @@ from libpysal.weights.spatial_lag import lag_spatial as slag
 import numpy as np
 import random
 from sklearn import preprocessing
+import psutil
 
 PERMUTATIONS = 0
 
+def get_memory():
+    # Get the virtual memory usage details
+    memory = psutil.virtual_memory()
+    # Calculate the free memory in MB
+    free_memory_mb = (memory.available / 1024.0) / 1024.0
+    return free_memory_mb
 
+'''
 def get_memory():
     with open('/proc/meminfo', 'r') as mem:
         free_memory = 0
@@ -14,15 +22,17 @@ def get_memory():
             if str(sline[0]) in ('MemFree:', 'Buffers:', 'Cached:'):
                 free_memory += int(sline[1])
     return free_memory / 1024
-
+'''
 
 class Moran(object):
-    """Moran's I Global Autocorrelation Statistic
+    """
+    
+    Moran's I Global Autocorrelation Statistic
 
-    Modification from https://github.com/pysal/esda
+    Adapted from https://github.com/pysal/esda
 
     Parameters
-    ----------
+    ------------
 
         n               : int
                           number of observations
@@ -41,7 +51,7 @@ class Moran(object):
                           pseudo-p_values
 
     Attributes
-    ----------
+    ------------
         w            : W
                        original w object
 
@@ -85,14 +95,16 @@ class Moran(object):
         """
         Function to calculate Moran's I of all features
 
-        Arguments
-        ---------
+        Parameters
+        ------------
             X: n x p array
                log-transformed feature matrix
 
-            seed: random seed to make the results reproducible
+            seed: int
+                random seed to make the results reproducible
 
-            max_RAM: maximum limitation of memory (Gb)
+            max_RAM: int, float
+                maximum limitation of memory (Gb)
 
         Returns
         ---------

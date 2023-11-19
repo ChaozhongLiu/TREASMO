@@ -3,7 +3,6 @@ import pandas as pd
 import anndata as ad
 import time
 
-import treasmo.core as core
 from minisom import MiniSom
 
 
@@ -39,24 +38,30 @@ __email__ = "czliubioinfo@gmail.com"
 
 def FindAllMarkers(mudata, ident, mods=['rna','atac'], corrct_method='bonferroni', seed=1):
     """
-    Function to discover regulatory markers in all groups
+    Function to discover regulatory gene-peak markers in all groups
+    Target group correlation strength is compared with all remaining groups by t-test.
 
-    Arguments
-    ---------
-        mudata: single-cell multi-omics data saved as MuData object
+    Parameters
+    ------------
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
         
-        ident: column name in mudata.obs containing group labels
+        ident: str
+            column name in ``mudata.obs`` containing group labels
 
-        mods: scRNA-seq and scATAC-seq modality name in MuData object
+        mods: List[str, str]
+            scRNA-seq and scATAC-seq modality name in MuData object
 
-        corrct_method: multi-test correction method, one of ['bonferroni', 'fdr']
+        corrct_method: str
+            multi-test correction method, one of ['bonferroni', 'fdr']
 
-        seed: random seed to make the results reproducible
+        seed: int
+            random seed to make the results reproducible
 
     Returns
     ---------
-
-        DataFrame - Differentially regulated pairs statistical test results
+        DataFrame
+            Differentially regulated pairs statistical test results
 
 
     """
@@ -108,29 +113,35 @@ def FindAllMarkers(mudata, ident, mods=['rna','atac'], corrct_method='bonferroni
 
 def FindMarkers(mudata, ident, group_1, group_2, mods=['rna','atac'], corrct_method='bonferroni',seed=1, log=True):
     """
-    Function to compare regulatory pairs between two group
+    Function to compare regulatory gene-peak pairs between two group by t-test.
 
-    Arguments
-    ---------
-        mudata: single-cell multi-omics data saved as MuData object
+    Parameters
+    ------------
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
         
-        ident: column name in mudata.obs containing group labels
+        ident: str
+            column name in mudata.obs containing group labels
 
-        group_1: first group name in ident to compare with the second
+        group_1: str, int
+            first group name in ident to compare with the second
 
-        group_2: second group name in ident to compare with the first
+        group_2: str, int
+            second group name in ident to compare with the first
 
-        mods: scRNA-seq and scATAC-seq modality name in MuData object
+        mods: List[str, str]
+            scRNA-seq and scATAC-seq modality name in MuData object
 
-        corrct_method: multi-test correction method, one of ['bonferroni', 'fdr']
+        corrct_method: str
+            multi-test correction method, one of ['bonferroni', 'fdr']
 
-        seed: random seed to make the results reproducible
+        seed: int
+            random seed to make the results reproducible
 
     Returns
     ---------
-
-        DataFrame - Differentially regulated pairs statistical test results
-
+        DataFrame
+            Differentially regulated pairs statistical test results
 
     """
 
@@ -177,6 +188,10 @@ def FindMarkers(mudata, ident, group_1, group_2, mods=['rna','atac'], corrct_met
 
 
 def marker_test(local_L_df, group_1, group_2=None, corrct_method='bonferroni'):
+    """
+    Function unit to perform statistical test with given data.
+    No need to be called from user end.
+    """
 
     #stat_df.columns = ['group','name','Mean.1','Mean.2','Std.1',
     #                       'Std.2','obsn.1','obsn.2','score','p.value','p.adj']
@@ -214,6 +229,10 @@ def marker_test(local_L_df, group_1, group_2=None, corrct_method='bonferroni'):
 
 
 def group_stat(local_L, group_1, group_2=None):
+    """
+    Function unit to calculate group statitics.
+    No need to be called from user end.
+    """
     groups_label = local_L['clus'].to_numpy()
     mask_1 = groups_label == group_1
     obsn1 = np.sum(mask_1)
@@ -258,6 +277,9 @@ def group_stat(local_L, group_1, group_2=None):
 
 
 def add_feature_sparsity(stat_df, mudata, group, mods=['rna','atac']):
+    """
+    Helper function to add feature sparsity information in final group comparison results.
+    """
     GP_G = [gp.split('~')[0] for gp in stat_df['name']]
     GP_P = [gp.split('~')[1] for gp in stat_df['name']]
     
@@ -271,26 +293,32 @@ def MarkerFilter(statDf, min_pct_rna=0.1, min_pct_atac=0.05, mean_diff=1.0, p_cu
     """
     Function to filter markers from statistical test results by sparsity, correlation difference, and p-value
 
-    Arguments
-    ---------
-        statDf: Differentially regulated pairs statistical test results
+    Parameters
+    ------------
+        statDf: DataFrame
+            Differentially regulated pairs statistical test results
         
-        min_pct_rna: percentage of cells that express the gene as sparsity cutoff
+        min_pct_rna: float
+            sparsity filter cutoff: percentage of cells that express the gene
 
-        min_pct_atac: percentage of cells that have the peak as sparsity cutoff
+        min_pct_atac: float
+            sparsity filter cutoff: percentage of cells that have the peak
 
-        mean_diff: mean correlation difference between the group and background (all other groups)
+        mean_diff: float
+            mean correlation strength difference between the group and background (all other groups)
 
-        p_cutoff: adjusted p-value cutoff
+        p_cutoff: float
+            adjusted p-value cutoff
 
-        plot: if True, return volcano plot
+        plot: bool
+            if True, plot volcano plot
 
     Returns
     ---------
-        Filtered marker list with the same columns as stat_df
+        DataFrame
+            Filtered marker list with the same columns as stat_df
 
-        if plot==True, return volcano plot
-
+            if plot==True, also return volcano plot
 
     """
     stat_df = statDf.copy()
@@ -329,27 +357,32 @@ def MarkerFilter(statDf, min_pct_rna=0.1, min_pct_atac=0.05, mean_diff=1.0, p_cu
 
 def FindPathMarkers(mudata, ident, path, mods=['rna','atac'], corrct_method='bonferroni', seed=1):
     """
-    One-to-one gene-peak pair correlation comparison among groups in the trajectory path
+    One-to-one comparison of gene-peak correlation among groups in the trajectory path by t-test.
 
-    Arguments
-    ---------
-        mudata: single-cell multi-omics data saved as MuData object
+    Parameters
+    ------------
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
         
-        ident: column name in mudata.obs containing group labels
+        ident: str
+            column name in ``mudata.obs`` containing group labels
 
-        path: list of clusters ordered by their sequence on the trajectory. A path here should have no branch.
+        path: List
+            list of clusters ordered by their sequence on the trajectory. A path here should have no branch.
 
-        mods: scRNA-seq and scATAC-seq modality name in MuData object
+        mods: List[str, str]
+            scRNA-seq and scATAC-seq modality name in MuData object
 
-        corrct_method: multi-test correction method, one of ['bonferroni', 'fdr']
+        corrct_method: str
+            multi-test correction method, one of ['bonferroni', 'fdr']
 
-        seed: random seed to make the results reproducible
+        seed: int
+            random seed to make the results reproducible
 
     Returns
     ---------
-
-        DataFrame - Differentially regulated pairs statistical test results
-
+        DataFrame
+            Differentially regulated pairs statistical test results
 
     """
 
@@ -379,6 +412,11 @@ def FindPathMarkers(mudata, ident, path, mods=['rna','atac'], corrct_method='bon
 
 
 def _fit_data(timebinDf, xfit):
+    """
+    Helper function to fit correlation strength along trajectory by GaussianProcessRegressor.
+    No need to be called from user end.
+    """
+
     xdata = timebinDf['time'].to_numpy()
     ydata = timebinDf['value'].to_numpy()
 
@@ -398,6 +436,48 @@ def _fit_data(timebinDf, xfit):
 
 def TimeBinData(mudata, ident, path, pseudotime, features,
                 bins=100, rm_outlier=False, fitted=None):
+
+    """
+    Helper function to generate bined data along trajectory.
+
+    Parameters
+    --------------
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
+
+            It must have correlation strength index calculated.
+        
+        ident: str
+            column name in ``mudata.obs`` containing trajectory group labels
+
+        path: List
+            list of clusters ordered by their sequence on the trajectory. A path here should have no branch.
+
+        pseudotime: str
+            column name in ``mudata.obs`` containing trajectory pseudotime labels
+
+        features: List, numpy.array
+            List of gene-peak pair names. Can be selected from ``muData.uns['Local_L_names']``
+
+        bins: int
+            number of bins to divide the trajectory into
+        
+        rm_outlier: bool
+            whether or not adding cap and limit strength index within +- 2*std
+        
+        fitted: int, default is None
+            if an int, return GaussianProcessRegressor fitted data with ``fitted`` bins.
+
+            if None, return only bined raw data
+
+    Returns
+    ---------
+        DataFrame
+            bined raw data
+
+            Optional: GaussianProcessRegressor fitted data
+
+    """
 
     cells_bool = mudata.obs[ident].isin(path).to_numpy()
     #features = mudata.uns['Local_L_names']
@@ -445,6 +525,33 @@ def TimeBinData(mudata, ident, path, pseudotime, features,
 
 
 def TimeBinProportion(mudata, ident, path, pseudotime, bins=100):
+    """
+    Function to calculate bined cell type proportion along trajectory
+
+    Parameters
+    --------------
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
+        
+        ident: str
+            column name in ``mudata.obs`` containing trajectory group labels
+
+        path: List
+            list of clusters ordered by their sequence on the trajectory. A path here should have no branch.
+
+        pseudotime: str
+            column name in ``mudata.obs`` containing trajectory pseudotime labels
+
+        bins: int
+            number of bins to divide the trajectory into
+        
+
+    Returns
+    ---------
+        DataFrame
+            bined data with pseudotime and cell type proportion
+
+    """
 
     # Construct DataFrame
     cells_bool = mudata.obs[ident].isin(path).to_numpy()
@@ -478,7 +585,43 @@ def TimeBinProportion(mudata, ident, path, pseudotime, bins=100):
 def FindPathDynamics(mudata, ident, path, pseudotime, rm_outlier=True,
                      var_cutoff=0.1, range_cutoff=1.0, bins=100, plot=False):
     """
-    Detect highly variable gene-peak pairs along the trajectory
+    Detect highly variable gene-peak pairs along the trajectory by correlation strength range (max-min) and variance
+
+    Parameters
+    --------------
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
+        
+        ident: str
+            column name in ``mudata.obs`` containing trajectory group labels
+
+        path: List
+            list of clusters ordered by their sequence on the trajectory. A path here should have no branch.
+
+        pseudotime: str
+            column name in ``mudata.obs`` containing trajectory pseudotime labels
+
+        bins: int (argument passed to TimeBinData)
+            number of bins to divide the trajectory into
+
+        rm_outlier: bool (argument passed to TimeBinData)
+            whether or not adding cap and limit strength index within +- 2*std
+        
+        var_cutoff: float
+            minimum variance cutoff
+        
+        range_cutoff: float
+            minimum range (max - min) cutoff
+        
+        plot: bool
+            if True, plot volcano plot 
+
+
+    Returns
+    ---------
+        DataFrame
+            Dynamic gene-peak pairs along the trajectory
+
     """
     # Construct DataFrame
     features = mudata.uns['Local_L_names']
@@ -510,30 +653,36 @@ def FindPathDynamics(mudata, ident, path, pseudotime, rm_outlier=True,
 
 def PathDynamics(mudata, gene, peaks, ident, path, pseudotime, bins=100):
     """
-    Quantify regulatory dynamics along the trajectory.
+    Quantify regulatory dynamics along the trajectory for a single gene and its regulatory elements.
 
-    Arguments
-    ---------
-        mudata: single-cell multi-omics data saved as MuData object
+    Parameters
+    ------------
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
         
-        gene: gene name
+        gene: str
+            a single gene name
 
-        peak: a list of peaks correlated with the gene (gene-peak pair should exist in mudata.uns['Local_L_names'])
+        peak: List, numpy.array
+            a list of peaks correlated with the gene (gene-peak pair should exist in mudata.uns['Local_L_names'])
 
-        ident: ident label in mudata.obs columns to distinguish clusters listed in path
+        ident: str
+            column name in ``mudata.obs`` containing trajectory group labels
 
-        path: list of clusters ordered by their sequence on the trajectory. A path here should have no branch.
+        path: List
+            list of clusters ordered by their sequence on the trajectory. A path here should have no branch.
 
-        pseudotime: pseudotime label for the trajectory saved in mudata.obs
+        pseudotime: str
+            pseudotime label for the trajectory saved in ``mudata.obs``
 
-        bins: number of bins to divide the trajectory into
+        bins: int
+            number of bins to divide the trajectory into
 
 
     Returns
     ---------
-
-        DataFrame saved in mudata.uns['pathDym'] describing correlation and cluster proportion changes along the trajectory
-
+        MuData
+            DataFrame added in mudata.uns['pathDym'][path][gene] describing correlation and cluster proportion changes along the trajectory
 
     """
 
@@ -589,38 +738,53 @@ def DynamicModule(mudata, ident, path, pseudotime, features=None, bins=100, fitt
                   num_iteration=5000, som_shape=(2,2), sigma=0.5, learning_rate=.1, random_seed=1):
     
     """
-    Function to discover feature modules by Self-Organizing Map
+    Function to cluster gene-peak modules by Self-Organizing Map along the trajectory
 
-
-    Arguments
-    ---------
-        mudata: single-cell multi-omics data saved as MuData object
-
-        ident: ident label in mudata.obs columns to distinguish clusters listed in path
-
-        path: list of clusters ordered by their sequence on the trajectory. A path here should have no branch.
-
-        pseudotime: pseudotime label for the trajectory saved in mudata.obs
-
-        bins: number of bins to divide the trajectory into
-
-        re_outlier: whether to remove bins exceeding 2 std
-    
-        num_iteration: maximum number of iteration to optimize the SOM
+    Parameters
+    ------------
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
         
-        som_shape: (M, N) shape of the map, defines number and similarity structure of modules
+        ident: str
+            column name in ``mudata.obs`` containing trajectory group labels
 
-        sigma: the radius of the different neighbors in the SOM
+        path: List
+            list of clusters ordered by their sequence on the trajectory. A path here should have no branch.
 
-        learning_rate: optimization speed, how much weights are adjusted during each iteration
+        pseudotime: str
+            pseudotime label for the trajectory saved in ``mudata.obs``
 
-        random_seed: random seed to make the results reproducible
+        bins: int
+            number of bins to divide the trajectory into
+        
+        fitted: int
+            number of bins to divide the trajectory into for GaussianProcessRegressor fitted data
 
+            ``bins`` sets bined data for later plotting;
+
+            ``fitted`` sets bined data for clustering;
+            
+            It is recommended to keep the two the same
+    
+        num_iteration: int
+            maximum number of iteration to optimize the SOM
+        
+        som_shape: Tuple[int, int]
+            shape of the map, defines number and similarity structure of modules
+
+        sigma: float
+            the radius of the different neighbors in the SOM
+
+        learning_rate: float
+            optimization speed, how much weights are adjusted during each iteration
+
+        random_seed: int
+            random seed to make the results reproducible
 
     Returns
     ---------
-        time bin data labeled with module
-
+        Dict
+            key is module index, value is time bin data
 
     """
     if features is None:

@@ -35,6 +35,9 @@ __email__ = "czliubioinfo@gmail.com"
 # Calculate feature sparsity =================================================
 
 def _fill_miss_index(df, n):
+    """
+    Internal helper function for feature sparsity calculation
+    """
     miss_ind = np.setdiff1d(np.arange(n), df['ind'].to_numpy())
     miss_pd = pd.DataFrame({'ind':miss_ind,'size':0})
     df = pd.concat([df,miss_pd], axis=0).sort_values('ind')
@@ -43,18 +46,23 @@ def _fill_miss_index(df, n):
 
 def feature_sparsity(mudata, group_by={}):
     """
-    Function to add sparisity info in AnnData.var
+    Function to add feature sparisity information in MuData.var
 
-    Arguments
+    The value is defined as ``#non-zero value / #cells`` in each feature.
+
+    Parameters
     --------------
-        mudata: single-cell multi-omics data saved as MuData object
+        mudata: MuData
+            single-cell multi-omics data saved as MuData object
 
-        group_by: dict; If provided, calculate per group feature sparsity for each modality
-                  Example: {'rna':'cell_type', 'atac':'cell_type'}
+        group_by: dict
+            If provided, calculate per group feature sparsity for each modality
 
-    Return
+            Example: {'rna':'cell_type', 'atac':'cell_type'}
+
+    Returns
     --------------
-        anndat with
+        MuData
             var['Frac.all']
             var['Frac.GroupName']
 
@@ -103,9 +111,9 @@ def feature_sparsity(mudata, group_by={}):
 
 def get_gloc_from_atac_data(peaks, split_symbol):
     """
-    Method to get the genomic locations (including the middle point)of peaks
-        Author: Linhua Wang Linhua.Wang@bcm.edu
-        https://github.com/LiuzLab/Neurips2021/blob/master/task1_utils1.py
+    Helper function to get the genomic locations (including the middle point) of peaks
+
+    \*No need to call from user end
     """
     glocs = peaks.tolist()
     glocs = [c for c in glocs if 'chr' in c]
@@ -126,6 +134,17 @@ def get_gloc_from_atac_data(peaks, split_symbol):
 
 
 def nearby_peaks(g_array, min_op=1):
+    """
+    Helper function to get regions overlapped with the gene body.
+
+    \*No need to call from user end
+
+    Parameters
+    --------------
+        min_op: int
+            The peak and gene have to be at least ``min_op`` overlapped to be considered overlapped.
+
+    """
     g_chr = str(g_array[2])
     g_array_n = g_array[0:2].copy().astype(float)
     op = np.minimum(p_array[:,1].squeeze(),g_array_n[1]) - np.maximum(p_array[:,0].squeeze(),g_array_n[0])
@@ -139,32 +158,45 @@ def peaks_within_distance(genes, peaks, upstream, downstream, ref_gtf_fn,
     """
     Function to annotate genes with nearby peaks
 
-    Arguments
+    Parameters
     --------------
-        genes: gene list to be annotated
+        genes: List, numpy.array
+            gene list to be annotated
 
-        peaks: peak candidate list
+        peaks: List, numpy.array
+            candidate peaks list
 
-        upstream: include peaks N bp upstream of the TSS
+        upstream: int
+            include peaks N bp upstream of the gene TSS
 
-        downstream: include peaks N bp downstream of the TES
+        downstream: int
+            include peaks N bp downstream of the TES
 
-        ref_gtf_fn: GTF format file containing gene location information
-                    see example at https://github.com/ChaozhongLiu/scGREAT/tree/main/replication/data
-                    - Homo_sapiens.GRCh38.104.GeneLoc.Tab.txt
-                    - Mus_musculus.GRCm38.100.GeneLoc.Tab.txt
+        ref_gtf_fn: str
+            GTF format file containing gene location information
+            see example at https://github.com/ChaozhongLiu/scGREAT/tree/main/replication/data
 
-        no_intersect: if peak within the range lies in another gene body, remove the peak or not
+            - Homo_sapiens.GRCh38.104.GeneLoc.Tab.txt
+            
+            - Mus_musculus.GRCm38.100.GeneLoc.Tab.txt
 
-        id_col: ID column name, ref_gtf_fn should contain this ID
+        no_intersect: bool
+            if the candidate peak lies in another gene's body, remove the peak or not
 
-        split_symbol: how peak location ID is merged
-                      'chr1-12345-23456' - split_symbol=['-','-']
-                      'chr1:12345-23456' - split_symbol=[':','-']
+        id_col: str
+            column name in ``ref_gtf_fn`` that indicates gene ID
 
-    Return
+        split_symbol: List[str, str]
+            how peak location ID is formatted
+
+            'chr1-12345-23456' - split_symbol=['-','-']
+
+            'chr1:12345-23456' - split_symbol=[':','-']
+
+    Returns
     --------------
-        DataFrame containing gene annotation infos
+        DataFrame
+            contains gene annotation information
 
     """
 
@@ -262,31 +294,47 @@ def peaks_within_distance(genes, peaks, upstream, downstream, ref_gtf_fn,
 def TFBS_match(genes, peaks, ref_fn, min_overlap=1, split_symbol=['-','-']):
 
     """
-    Function to annotate TF with binding sites
+    Function to annotate TF with binding site regions
 
-    Arguments
+
+    Parameters
     --------------
-        genes: gene list to be annotated
+        genes: List, numpy.array
+            gene list to be annotated
 
-        peaks: peak candidate list
+        peaks: List, numpy.array
+            candidate peaks list
 
-        ref_fn: BED format file containing gene binding site location information
-                see example below from JASPAR TFBS genome track (https://jaspar.genereg.net/genome-tracks/)
-                    chr1    280     298     AGL3    821     -
-                    chr1    309     327     AGL3    823     +
-                    chr1    309     327     AGL3    882     -
-                    chr1    1577    1595    AGL3    823     +
-                    chr1    1577    1595    AGL3    883     -
+        ref_fn: str
+            BED format file containing gene binding site location information
+
+            see example below from JASPAR TFBS genome track (https://jaspar.genereg.net/genome-tracks/)
+                
+            .. code-block:: bash
+            
+                chr1    280     298     AGL3    821     -
+
+                chr1    309     327     AGL3    823     +
+
+                chr1    309     327     AGL3    882     -
+
+                chr1    1577    1595    AGL3    823     +
         
-        min_overlap: number; the minimum number of overlaped base pairs between peak and TFBS
+        min_overlap: int
+            the minimum number of overlaped base pairs between candidate peak and TFBS
 
-        split_symbol: how peak location ID is merged
-                      'chr1-12345-23456' - split_symbol=['-','-']
-                      'chr1:12345-23456' - split_symbol=[':','-']
+        split_symbol: List[str, str]
+            how peak location ID is formatted
 
-    Return
+            'chr1-12345-23456' - split_symbol=['-','-']
+
+            'chr1:12345-23456' - split_symbol=[':','-']
+
+
+    Returns
     --------------
-        DataFrame containing TF annotation infos
+        DataFrame
+            contains TF annotation information
 
     """
 
@@ -354,6 +402,21 @@ def TFBS_match(genes, peaks, ref_fn, min_overlap=1, split_symbol=['-','-']):
 # Homer related tools
 #=========================================================================================
 def PFM2Motif(file_name, out_file, detection_threshold=0):
+    """
+    Function to convert PFM (Position Frequency Matrix) into Homer Motif file
+
+    Parameters
+    --------------
+        file_name: str
+            Path to PFM file, see example at https://jaspar.elixir.no/docs/#jaspar-matrix-formats
+        
+        out_file: str
+            Path to output file
+        
+        detection_threshold: int, float
+            See Homer explanation at http://homer.ucsd.edu/homer/motif/creatingCustomMotifs.html
+    
+    """
     file = open(file_name, 'r').readlines()
 
     df_dict = {}
@@ -373,7 +436,7 @@ def PFM2Motif(file_name, out_file, detection_threshold=0):
     motif_header = motif_header.strip('>')
     motif_header = motif_header.strip('\n').split('\t')
     motif_header = '_'.join(motif_header)
-    motif_header = '>' + motif_seq + '\t' + motif_header + '\t0'
+    motif_header = '>' + motif_seq + '\t' + motif_header + f'\t{detection_threshold}'
 
     motif_file = open(out_file,'w')
     motif_file.write(motif_header)
@@ -389,6 +452,28 @@ def PFM2Motif(file_name, out_file, detection_threshold=0):
 
 
 def peak2HomerInput(peaks, out_file, filetype='peaks', split_symbol=['-','-']):
+    """
+    Helper function to convert peak list to Homer accepted input format
+
+    Parameters
+    --------------
+        peaks: List, numpy.array
+            peaks list to convert
+        
+        out_file: str
+            Path to output file
+        
+        filetype: str
+            peaks or bed. File type to generate
+        
+        split_symbol: List[str, str]
+            how peak location ID is formatted
+
+            'chr1-12345-23456' - split_symbol=['-','-']
+
+            'chr1:12345-23456' - split_symbol=[':','-']
+
+    """
 
     if filetype == 'peaks':
         homer_df = pd.DataFrame({'index': np.arange(len(peaks)),
@@ -418,29 +503,38 @@ def run_HOMER_motif(peaks, out_dir, prefix, ref_genome,
     It will prepare Homer required input file
     and output results in the directory specified
 
-    Arguments
-    ---------
-        peaks: list or array-like, peaks of interests
+    Parameters
+    -------------
+        peaks: List, numpy.array
+            peaks of interests
 
-        out_dir: output directory to save the results
+        out_dir: str
+            output directory to save the results
     
-        prefix: prefix of all files, folder called out_dir/homer_prefix will be created to save all the results
+        prefix: str
+            prefix of all files, folder called out_dir/homer_[prefix] will be created to save all the results
 
-        ref_genome: str, reference genome name, e.g., 'hg19', 'hg38'
+        ref_genome: str
+            reference genome name, e.g., 'hg19', 'hg38'
 
-        homer_path: path to Homer software, if Homer already added to the PATH, argument can be ignored
+        homer_path: str
+            path to Homer software, if Homer already added to the PATH, argument can be ignored
 
-        split_symbol: how peak location ID is merged
-                      'chr1-12345-23456' - split_symbol=['-','-']
-                      'chr1:12345-23456' - split_symbol=[':','-']
+        split_symbol: List[str, str]
+            how peak location ID is formatted
+
+            'chr1-12345-23456' - split_symbol=['-','-']
+
+            'chr1:12345-23456' - split_symbol=[':','-']
         
-        size: Homer paramter, the size of the region used for motif finding
+        size: int
+            Homer paramter, the size of the region used for motif finding
 
 
     Returns
     ---------
-        Homer results saved in out_dir/homer_prefix
-        Peak list DataFrame in BED format
+        DataFrame
+            Homer results saved in out_dir/homer_[prefix]
 
     """
 
@@ -491,26 +585,34 @@ def motif_summary(peak_file, homer_dir, motif_index, ref_genome,
     Function to extract related peaks from motifs of interests.
 
 
-    Arguments
-    ---------
-        peak_file: out_dir/prefix.peaks.bed file generated in run_HOMER_motif()
+    Parameters
+    ------------
+        peak_file: str
+            out_dir/prefix.peaks.bed file generated in run_HOMER_motif()
 
-        homer_dir: out_dir/homer_prefix in run_HOMER_motif() | Homer output folder
+        homer_dir: str
+            out_dir/homer_prefix in run_HOMER_motif() | Homer output folder
     
-        motif_index: motif of interests index in homer_dir/knownResults.html
+        motif_index: int
+            motif of interests index in homer_dir/knownResults.html
 
-        ref_genome: str, reference genome name, e.g., 'hg19', 'hg38'
+        ref_genome: str
+            reference genome name, e.g., 'hg19', 'hg38'
 
-        homer_path: path to Homer software, if Homer already added to the PATH, argument can be ignored
+        homer_path: str
+            path to Homer software, if Homer already added to the PATH, argument can be ignored
         
-        size: Homer paramter, the size of the region used for motif finding
-              Keep the same as in run_HOMER_motif()
+        size: int
+            Homer paramter, the size of the region used for motif finding
+            Please keep it the same as in run_HOMER_motif()
 
 
     Returns
     ---------
         Motif related peaks information saved in homer_dir/
-        DataFrame containing peak list and motif matching quality information
+        
+        DataFrame
+            contains peak list and motif matching quality information
 
     """
 
