@@ -22,3 +22,4 @@ dependencies:
     - numpydoc
     - sphinx_book_theme
     - psutil
+    - pandoc

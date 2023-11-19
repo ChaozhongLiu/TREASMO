@@ -37,6 +37,5 @@ TREASMO is licensed under `GPL-3.0 <https://github.com/LiuzLab/AI_MARRVEL/blob/m
    :hidden:
 
    installation
-   quickstart
    quick_start.ipynb
    api
